@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ContactFormModal } from "@/components/ContactFormModal";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
 import { useState } from "react";
+import logo from "@/assets/kessel-logo.png";
 
 export const Hero = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -42,40 +43,57 @@ export const Hero = () => {
       </motion.div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-black leading-[1.1] mb-12 max-w-4xl"
-        >
-          WE BUILD <span className="text-primary">FORWARD-PUSHING</span> DIGITAL
-          SYSTEMS THAT TRANSFORM YOUR PRESENCE
-        </motion.h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-black leading-[1.1] mb-12"
+            >
+              WE BUILD <span className="text-primary">FORWARD-PUSHING</span> DIGITAL
+              SYSTEMS THAT TRANSFORM YOUR PRESENCE
+            </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 font-inter font-light tracking-wide"
-        >
-          Premium web design, conversion-focused development, and performance
-          marketing engineered for brands ready to accelerate.
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl text-muted-foreground mb-12 font-inter font-light tracking-wide"
+            >
+              Premium web design, conversion-focused development, and performance
+              marketing engineered for brands ready to accelerate.
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <Button
-            size="lg"
-            onClick={() => setIsContactModalOpen(true)}
-            className="group bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-base px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Button
+                size="lg"
+                onClick={() => setIsContactModalOpen(true)}
+                className="group bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-base px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
+              >
+                START YOUR PROJECT
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="hidden lg:flex justify-center items-center"
           >
-            START YOUR PROJECT
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </motion.div>
+            <img 
+              src={logo} 
+              alt="Kessel Solutions" 
+              className="w-full max-w-md opacity-20 hover:opacity-40 transition-opacity duration-500"
+            />
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
