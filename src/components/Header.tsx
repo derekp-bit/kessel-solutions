@@ -20,9 +20,6 @@ export const Header = () => {
           <a href="#process" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
             PROCESS
           </a>
-          <NavLink to="/contact" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
-            CONTACT
-          </NavLink>
         </nav>
       </div>
     </motion.header>
