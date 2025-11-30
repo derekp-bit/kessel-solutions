@@ -24,6 +24,8 @@ export const Header = () => {
             FAQ
           </a>
         </nav>
+
+        <img src={logo} alt="Kessel Solutions" className="h-24 md:h-28" />
       </div>
     </motion.header>
   );
