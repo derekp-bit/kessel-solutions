@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
@@ -39,7 +39,7 @@ export const Footer = () => {
           </Button>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 pt-16 border-t border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 pt-16 border-t border-border">
           {/* Logo and tagline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -75,30 +75,6 @@ export const Footer = () => {
               >
                 <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span className="font-inter">845-327-8025</span>
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Social */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-xl font-montserrat font-bold mb-6">CONNECT</h3>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-12 h-12 border-2 border-border flex items-center justify-center hover:border-primary hover:bg-primary transition-all duration-300 group"
-              >
-                <Linkedin className="w-5 h-5 text-primary group-hover:text-black transition-colors" />
-              </a>
-              <a
-                href="#"
-                className="w-12 h-12 border-2 border-border flex items-center justify-center hover:border-primary hover:bg-primary transition-all duration-300 group"
-              >
-                <Twitter className="w-5 h-5 text-primary group-hover:text-black transition-colors" />
               </a>
             </div>
           </motion.div>
