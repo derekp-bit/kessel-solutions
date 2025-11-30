@@ -13,7 +13,11 @@ export const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6"
     >
       <div className="container mx-auto max-w-7xl flex items-center justify-between">
-        <Link to="/" className="cursor-pointer">
+        <Link 
+          to="/" 
+          className="cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           <img src={logo} alt="Kessel Solutions" className="h-16 md:h-24 lg:h-28 hover:opacity-80 transition-opacity" />
         </Link>
         
