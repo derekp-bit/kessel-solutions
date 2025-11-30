@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, Linkedin, Twitter } from "lucide-react";
-import logo from "@/assets/kessel-logo.png";
 import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
@@ -48,7 +47,6 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img src={logo} alt="Kessel Solutions" className="h-12 mb-6" />
             <p className="text-muted-foreground font-inter font-light leading-relaxed">
               Forward-pushing digital systems engineered for brands ready to
               transform their presence.
