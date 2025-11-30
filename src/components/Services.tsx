@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   Palette,
   Code,
@@ -16,36 +17,42 @@ const services = [
     title: "Web Design",
     description:
       "Premium, conversion-focused interfaces that command attention and drive action.",
+    link: "/services/web-design",
   },
   {
     icon: Code,
     title: "Development",
     description:
       "Lightning-fast, scalable solutions built with cutting-edge technology stacks.",
+    link: "/services/development",
   },
   {
     icon: TrendingUp,
     title: "Performance Marketing",
     description:
       "Data-driven campaigns engineered to maximize ROI and accelerate growth.",
+    link: "/services/performance-marketing",
   },
   {
     icon: BarChart3,
     title: "Analytics",
     description:
       "Deep insights and tracking systems that illuminate the path to optimization.",
+    link: "/services/analytics",
   },
   {
     icon: Sparkles,
     title: "Brand Strategy",
     description:
       "Distinctive positioning and visual identity that sets you apart from the noise.",
+    link: "/services/brand-strategy",
   },
   {
     icon: Zap,
     title: "Automation Systems",
     description:
       "Intelligent workflows that streamline operations and multiply efficiency.",
+    link: "/services/automation-systems",
   },
 ];
 
@@ -98,25 +105,26 @@ export const Services = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         >
           {services.map((service) => (
-            <motion.div
-              key={service.title}
-              variants={item}
-              className="group relative border-2 border-border bg-card p-6 md:p-8 transition-all duration-500 cyan-glow-hover cursor-pointer"
-            >
-              {/* Triangle corner accent */}
-              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <Link key={service.title} to={service.link}>
+              <motion.div
+                variants={item}
+                className="group relative border-2 border-border bg-card p-6 md:p-8 transition-all duration-500 cyan-glow-hover cursor-pointer h-full"
+              >
+                {/* Triangle corner accent */}
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <service.icon className="w-10 h-10 md:w-12 md:h-12 mb-4 md:mb-6 text-primary transition-transform duration-500 group-hover:scale-110" />
-              <h3 className="text-lg md:text-xl lg:text-2xl font-montserrat font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
-                {service.description}
-              </p>
+                <service.icon className="w-10 h-10 md:w-12 md:h-12 mb-4 md:mb-6 text-primary transition-transform duration-500 group-hover:scale-110" />
+                <h3 className="text-lg md:text-xl lg:text-2xl font-montserrat font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
+                  {service.description}
+                </p>
 
-              {/* Animated underline */}
-              <div className="absolute bottom-0 left-0 w-full h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </motion.div>
+                {/* Animated underline */}
+                <div className="absolute bottom-0 left-0 w-full h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>
