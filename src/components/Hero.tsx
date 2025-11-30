@@ -44,7 +44,7 @@ export const Hero = () => {
           transition={{ duration: 1 }}
           className="mb-12"
         >
-          <img src={logo} alt="Kessel Solutions" className="h-24 md:h-32 lg:h-40" />
+          <img src={logo} alt="Kessel Solutions" className="h-32 md:h-40 lg:h-56" />
         </motion.div>
 
         <motion.h1
