@@ -65,18 +65,18 @@ export const Footer = () => {
             <h3 className="text-xl font-montserrat font-bold mb-6">CONTACT</h3>
             <div className="space-y-4">
               <a
-                href="mailto:hello@kesselsolutions.com"
+                href="mailto:KesselSolutionsCo@gmail.com"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 group"
               >
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span className="font-inter">hello@kesselsolutions.com</span>
+                <span className="font-inter">KesselSolutionsCo@gmail.com</span>
               </a>
               <a
-                href="tel:+1234567890"
+                href="tel:+18453278025"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 group"
               >
                 <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span className="font-inter">+1 (234) 567-890</span>
+                <span className="font-inter">845-327-8025</span>
               </a>
             </div>
           </motion.div>

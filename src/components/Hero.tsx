@@ -44,14 +44,14 @@ export const Hero = () => {
           transition={{ duration: 1 }}
           className="mb-12"
         >
-          <img src={logo} alt="Kessel Solutions" className="h-16 md:h-20" />
+          <img src={logo} alt="Kessel Solutions" className="h-24 md:h-32 lg:h-40" />
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-montserrat font-black leading-[0.9] mb-12 max-w-6xl"
+          className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-black leading-[1.1] mb-12 max-w-5xl"
         >
           WE BUILD <span className="text-primary">FORWARD-PUSHING</span> DIGITAL
           SYSTEMS THAT TRANSFORM YOUR PRESENCE
@@ -71,7 +71,6 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-6"
         >
           <Button
             size="lg"
@@ -79,13 +78,6 @@ export const Hero = () => {
           >
             START YOUR PROJECT
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="group border-2 border-white hover:bg-white hover:text-black font-montserrat font-bold text-base px-8 py-6 transition-all duration-300"
-          >
-            VIEW OUR WORK
           </Button>
         </motion.div>
       </div>
