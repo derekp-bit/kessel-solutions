@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 md:px-12">
+    <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden px-6 md:px-12 py-32">
       {/* Animated triangle overlays */}
       <motion.div
         className="absolute top-20 right-20 w-96 h-96 triangle-overlay"
@@ -41,7 +41,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-black leading-[1.1] mb-12 max-w-5xl"
+          className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-black leading-[1.1] mb-12 max-w-4xl"
         >
           WE BUILD <span className="text-primary">FORWARD-PUSHING</span> DIGITAL
           SYSTEMS THAT TRANSFORM YOUR PRESENCE

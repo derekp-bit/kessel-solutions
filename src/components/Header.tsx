@@ -11,7 +11,7 @@ export const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6"
     >
       <div className="container mx-auto max-w-7xl flex items-center justify-between">
-        <img src={logo} alt="Kessel Solutions" className="h-16 md:h-20" />
+        <img src={logo} alt="Kessel Solutions" className="h-24 md:h-28" />
         
         <nav className="flex items-center gap-8">
           <a href="#services" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
