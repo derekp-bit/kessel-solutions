@@ -90,7 +90,7 @@ export const Hero = () => {
             <img 
               src={logo} 
               alt="Kessel Solutions" 
-              className="w-full max-w-md opacity-20 hover:opacity-40 transition-opacity duration-500"
+              className="w-full max-w-md hover:scale-105 transition-transform duration-500"
             />
           </motion.div>
         </div>
