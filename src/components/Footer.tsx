@@ -37,10 +37,16 @@ export const Footer = () => {
           </h2>
           <Button
             size="lg"
-            onClick={() => setIsContactModalOpen(true)}
+            asChild
             className="bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-sm md:text-base px-6 md:px-10 py-4 md:py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
           >
-            LET'S TALK
+            <a
+              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SCHEDULE A CALL
+            </a>
           </Button>
         </motion.div>
 

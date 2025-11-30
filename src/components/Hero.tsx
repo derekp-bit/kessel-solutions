@@ -196,14 +196,20 @@ export const Hero = () => {
           >
             <Button
               size="lg"
-              onClick={() => setIsContactModalOpen(true)}
+              asChild
               className="group relative bg-primary hover:bg-primary text-foreground hover:text-background font-montserrat font-bold text-base md:text-lg px-10 py-7 transition-all duration-300 hover:scale-105 overflow-hidden"
             >
-              <span className="relative z-10 flex items-center">
-                START YOUR PROJECT
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-[hsl(200_18%_73%)] to-[hsl(199_18%_33%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <a
+                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="relative z-10 flex items-center">
+                  BOOK A STRATEGY CALL
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-[hsl(200_18%_73%)] to-[hsl(199_18%_33%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </a>
             </Button>
             
             <Button
