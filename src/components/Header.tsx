@@ -14,11 +14,14 @@ export const Header = () => {
         <img src={logo} alt="Kessel Solutions" className="h-24 md:h-28" />
         
         <nav className="flex items-center gap-8">
-          <a href="#services" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
+          <a href="/#services" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
             SERVICES
           </a>
-          <a href="#process" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
+          <a href="/#process" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
             PROCESS
+          </a>
+          <a href="/faq" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
+            FAQ
           </a>
         </nav>
       </div>
