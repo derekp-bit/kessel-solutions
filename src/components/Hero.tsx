@@ -21,12 +21,25 @@ export const Hero = () => {
         }} />
       </div>
 
-      {/* Floating geometric shapes */}
+      {/* Floating geometric shapes - triangles and polygons */}
       <motion.div
-        className="absolute top-20 right-[10%] w-64 h-64 border-2 border-primary/20 rotate-45"
+        className="absolute top-20 right-[10%] w-0 h-0 border-l-[100px] border-l-transparent border-r-[100px] border-r-transparent border-b-[173px] border-b-primary/20"
         animate={{
-          y: [0, -30, 0],
-          rotate: [45, 60, 45],
+          y: [0, -40, 0],
+          rotate: [0, 15, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      
+      <motion.div
+        className="absolute top-1/3 right-[25%] w-0 h-0 border-l-[60px] border-l-transparent border-r-[60px] border-r-transparent border-b-[104px] border-b-primary/30"
+        animate={{
+          y: [0, 30, 0],
+          rotate: [180, 210, 180],
         }}
         transition={{
           duration: 8,
@@ -34,15 +47,63 @@ export const Hero = () => {
           ease: "easeInOut",
         }}
       />
-      
+
       <motion.div
-        className="absolute bottom-32 left-[15%] w-40 h-40 border-2 border-primary/30"
+        className="absolute bottom-32 left-[15%] w-0 h-0 border-l-[70px] border-l-transparent border-r-[70px] border-r-transparent border-t-[121px] border-t-primary/25"
         animate={{
-          y: [0, 40, 0],
-          rotate: [0, 180, 360],
+          y: [0, -35, 0],
+          rotate: [45, 75, 45],
         }}
         transition={{
           duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute top-1/2 left-[8%] w-32 h-32 border-2 border-primary/20"
+        style={{
+          clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+        }}
+        animate={{
+          rotate: [0, 360],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-1/4 right-[12%] w-24 h-24 border-2 border-primary/30"
+        style={{
+          clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+        }}
+        animate={{
+          rotate: [0, 90, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[15%] left-[30%] w-16 h-16 border-2 border-primary/15"
+        style={{
+          clipPath: "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)",
+        }}
+        animate={{
+          rotate: [0, 180, 360],
+          scale: [1, 1.3, 1],
+        }}
+        transition={{
+          duration: 20,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -72,6 +133,20 @@ export const Hero = () => {
           repeat: Infinity,
           ease: "easeInOut",
           delay: 1,
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[60%] right-[35%] w-2 h-2 bg-primary rounded-full"
+        animate={{
+          scale: [1, 1.8, 1],
+          opacity: [0.4, 1, 0.4],
+        }}
+        transition={{
+          duration: 3.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
         }}
       />
 
@@ -122,20 +197,20 @@ export const Hero = () => {
             <Button
               size="lg"
               onClick={() => setIsContactModalOpen(true)}
-              className="group relative bg-primary hover:bg-primary text-black font-montserrat font-bold text-base md:text-lg px-10 py-7 transition-all duration-300 hover:scale-105 overflow-hidden"
+              className="group relative bg-primary hover:bg-primary text-foreground hover:text-background font-montserrat font-bold text-base md:text-lg px-10 py-7 transition-all duration-300 hover:scale-105 overflow-hidden"
             >
               <span className="relative z-10 flex items-center">
                 START YOUR PROJECT
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary via-[hsl(200_18%_73%)] to-[hsl(199_18%_33%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </Button>
             
             <Button
               size="lg"
               variant="outline"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-primary text-foreground hover:bg-primary hover:text-black font-montserrat font-bold text-base md:text-lg px-10 py-7 transition-all duration-300"
+              className="border-2 border-primary text-foreground hover:bg-primary hover:text-background font-montserrat font-bold text-base md:text-lg px-10 py-7 transition-all duration-300"
             >
               VIEW CAPABILITIES
             </Button>
