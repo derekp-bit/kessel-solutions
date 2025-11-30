@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ContactFormModal } from "@/components/ContactFormModal";
+import { ScrollIndicator } from "@/components/ScrollIndicator";
+import { useState } from "react";
 
 export const Hero = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   return (
     <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden px-6 md:px-12 py-32">
       {/* Animated triangle overlays */}
@@ -64,6 +69,7 @@ export const Hero = () => {
         >
           <Button
             size="lg"
+            onClick={() => setIsContactModalOpen(true)}
             className="group bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-base px-8 py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
           >
             START YOUR PROJECT
@@ -72,12 +78,21 @@ export const Hero = () => {
         </motion.div>
       </div>
 
+      {/* Scroll Indicator */}
+      <ScrollIndicator />
+
       {/* Animated decorative line */}
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 1.5, delay: 0.8 }}
         className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
+      />
+
+      {/* Contact Form Modal */}
+      <ContactFormModal
+        open={isContactModalOpen}
+        onOpenChange={setIsContactModalOpen}
       />
     </section>
   );
