@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Triangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/kessel-logo.png";
 
 export const Hero = () => {
   return (
@@ -38,15 +37,6 @@ export const Hero = () => {
       </motion.div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="mb-12"
-        >
-          <img src={logo} alt="Kessel Solutions" className="h-32 md:h-40 lg:h-56" />
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

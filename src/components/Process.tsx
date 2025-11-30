@@ -34,7 +34,7 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section className="relative py-32 px-6 md:px-12 overflow-hidden">
+    <section id="process" className="relative py-32 px-6 md:px-12 overflow-hidden">
       {/* Diagonal background accent */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-primary/5 to-transparent transform skew-x-12 translate-x-1/4" />
 
