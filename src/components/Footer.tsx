@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { ContactFormModal } from "@/components/ContactFormModal";
 
 export const Footer = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   return (
     <footer className="relative py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-12 overflow-hidden">
       {/* Large faint triangle motifs in background */}
@@ -33,6 +37,7 @@ export const Footer = () => {
           </h2>
           <Button
             size="lg"
+            onClick={() => setIsContactModalOpen(true)}
             className="bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-sm md:text-base px-6 md:px-10 py-4 md:py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
           >
             LET'S TALK
@@ -89,15 +94,21 @@ export const Footer = () => {
         >
           <p>&copy; 2024 Kessel Solutions. All rights reserved.</p>
           <div className="flex gap-6 md:gap-8">
-            <a href="#" className="hover:text-primary transition-colors duration-300">
+            <a href="/privacy" className="hover:text-primary transition-colors duration-300">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">
+            <a href="/terms" className="hover:text-primary transition-colors duration-300">
               Terms of Service
             </a>
           </div>
         </motion.div>
       </div>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal
+        open={isContactModalOpen}
+        onOpenChange={setIsContactModalOpen}
+      />
     </footer>
   );
 };

@@ -55,6 +55,13 @@ export const MobileMenu = () => {
                 >
                   FAQ
                 </a>
+                <a
+                  href="/about"
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg font-montserrat font-semibold tracking-wider hover:text-primary transition-colors"
+                >
+                  ABOUT
+                </a>
               </nav>
             </motion.div>
           </>
