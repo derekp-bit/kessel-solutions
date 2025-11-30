@@ -24,6 +24,9 @@ export const Header = () => {
           <a href="/faq" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
             FAQ
           </a>
+          <a href="/about" className="text-sm font-montserrat font-semibold tracking-wider hover:text-primary transition-colors">
+            ABOUT
+          </a>
         </nav>
 
         <MobileMenu />

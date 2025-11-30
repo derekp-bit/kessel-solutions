@@ -69,10 +69,22 @@ export const ContactFormModal = ({ open, onOpenChange }: ContactFormModalProps) 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     
-    // Simulate API call - replace with actual implementation
     try {
-      // TODO: Implement actual form submission (email service, database, etc.)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
       
       toast.success("Message sent successfully!", {
         description: "We'll get back to you within 24 hours.",
@@ -81,6 +93,7 @@ export const ContactFormModal = ({ open, onOpenChange }: ContactFormModalProps) 
       form.reset();
       onOpenChange(false);
     } catch (error) {
+      console.error("Contact form error:", error);
       toast.error("Failed to send message", {
         description: "Please try again or contact us directly.",
       });
