@@ -31,7 +31,7 @@ const services = [
   },
   {
     icon: BarChart3,
-    title: "Analytics Implementation",
+    title: "Analytics",
     description:
       "Deep insights and tracking systems that illuminate the path to optimization.",
   },
