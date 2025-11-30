@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   return (
-    <footer className="relative py-20 px-6 md:px-12 overflow-hidden">
+    <footer className="relative py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-12 overflow-hidden">
       {/* Large faint triangle motifs in background */}
       <div className="absolute top-0 right-0 w-96 h-96 triangle-overlay opacity-[0.02]">
         <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -25,21 +25,21 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-12 md:mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-black mb-8 max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-montserrat font-black mb-6 md:mb-8 max-w-4xl mx-auto">
             READY TO <span className="text-primary">ACCELERATE</span> YOUR
             DIGITAL PRESENCE?
           </h2>
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-base px-10 py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
+            className="bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-sm md:text-base px-6 md:px-10 py-4 md:py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
           >
             LET'S TALK
           </Button>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 pt-16 border-t border-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16 pt-12 md:pt-16 border-t border-border">
           {/* Logo and tagline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -60,20 +60,20 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className="text-xl font-montserrat font-bold mb-6">CONTACT</h3>
-            <div className="space-y-4">
+            <h3 className="text-lg md:text-xl font-montserrat font-bold mb-4 md:mb-6">CONTACT</h3>
+            <div className="space-y-3 md:space-y-4">
               <a
                 href="mailto:KesselSolutionsCo@gmail.com"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+                className="flex items-center gap-2 md:gap-3 text-sm md:text-base text-muted-foreground hover:text-primary transition-colors duration-300 group"
               >
-                <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span className="font-inter">KesselSolutionsCo@gmail.com</span>
+                <Mail className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span className="font-inter break-all">KesselSolutionsCo@gmail.com</span>
               </a>
               <a
                 href="tel:+18453278025"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300 group"
+                className="flex items-center gap-2 md:gap-3 text-sm md:text-base text-muted-foreground hover:text-primary transition-colors duration-300 group"
               >
-                <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Phone className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span className="font-inter">845-327-8025</span>
               </a>
             </div>
@@ -88,7 +88,7 @@ export const Footer = () => {
           className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-inter"
         >
           <p>&copy; 2024 Kessel Solutions. All rights reserved.</p>
-          <div className="flex gap-8">
+          <div className="flex gap-6 md:gap-8">
             <a href="#" className="hover:text-primary transition-colors duration-300">
               Privacy Policy
             </a>

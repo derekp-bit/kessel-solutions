@@ -48,20 +48,20 @@ const FAQ = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       
-      <section className="relative pt-40 pb-32 px-6 md:px-12 overflow-hidden">
+      <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 lg:pb-32 px-4 md:px-6 lg:px-12 overflow-hidden">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-16"
+            className="mb-12 md:mb-16"
           >
-            <h1 className="text-5xl md:text-7xl font-montserrat font-black mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-montserrat font-black mb-4 md:mb-6">
               FREQUENTLY ASKED
               <br />
               <span className="text-primary">QUESTIONS</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground font-inter font-light max-w-2xl">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-inter font-light max-w-2xl">
               Everything you need to know about working with Kessel Solutions.
             </p>
           </motion.div>
@@ -71,17 +71,17 @@ const FAQ = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <Accordion type="single" collapsible className="w-full space-y-3 md:space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border-2 border-border bg-card px-8 py-2 cyan-glow-hover transition-all duration-500"
+                  className="border-2 border-border bg-card px-4 md:px-8 py-2 cyan-glow-hover transition-all duration-500"
                 >
-                  <AccordionTrigger className="text-left text-lg md:text-xl font-montserrat font-bold hover:text-primary transition-colors">
+                  <AccordionTrigger className="text-left text-base md:text-lg lg:text-xl font-montserrat font-bold hover:text-primary transition-colors">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed pt-4">
+                  <AccordionContent className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed pt-4">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
