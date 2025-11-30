@@ -69,7 +69,7 @@ export const Services = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-32 px-6 md:px-12 overflow-hidden">
+    <section id="services" className="relative py-16 md:py-24 lg:py-32 px-4 md:px-6 lg:px-12 overflow-hidden">
       {/* Diagonal divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
@@ -79,12 +79,12 @@ export const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-5xl md:text-7xl font-montserrat font-black mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-montserrat font-black mb-4 md:mb-6">
             CAPABILITIES
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl font-inter font-light">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl font-inter font-light">
             Full-spectrum digital services engineered to propel your brand
             forward.
           </p>
@@ -95,22 +95,22 @@ export const Services = () => {
           variants={container}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
         >
           {services.map((service) => (
             <motion.div
               key={service.title}
               variants={item}
-              className="group relative border-2 border-border bg-card p-8 transition-all duration-500 cyan-glow-hover cursor-pointer"
+              className="group relative border-2 border-border bg-card p-6 md:p-8 transition-all duration-500 cyan-glow-hover cursor-pointer"
             >
               {/* Triangle corner accent */}
               <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <service.icon className="w-12 h-12 mb-6 text-primary transition-transform duration-500 group-hover:scale-110" />
-              <h3 className="text-xl md:text-2xl font-montserrat font-bold mb-4 group-hover:text-primary transition-colors duration-300">
+              <service.icon className="w-10 h-10 md:w-12 md:h-12 mb-4 md:mb-6 text-primary transition-transform duration-500 group-hover:scale-110" />
+              <h3 className="text-lg md:text-xl lg:text-2xl font-montserrat font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
                 {service.description}
               </p>
 

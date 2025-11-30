@@ -34,9 +34,9 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section id="process" className="relative py-32 px-6 md:px-12 overflow-hidden">
-      {/* Diagonal background accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-primary/5 to-transparent transform skew-x-12 translate-x-1/4" />
+    <section id="process" className="relative py-16 md:py-24 lg:py-32 px-4 md:px-6 lg:px-12 overflow-hidden">
+      {/* Diagonal background accent - hidden on mobile */}
+      <div className="hidden md:block absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-primary/5 to-transparent transform skew-x-12 translate-x-1/4" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
@@ -44,17 +44,17 @@ export const Process = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-5xl md:text-7xl font-montserrat font-black mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-montserrat font-black mb-4 md:mb-6">
             OUR PROCESS
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl font-inter font-light">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl font-inter font-light">
             A proven methodology engineered for exceptional results.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -70,30 +70,30 @@ export const Process = () => {
               )}
 
               {/* Step number */}
-              <div className="text-7xl md:text-8xl font-montserrat font-black text-primary/20 group-hover:text-primary/40 transition-colors duration-500 mb-4">
+              <div className="text-6xl md:text-7xl lg:text-8xl font-montserrat font-black text-primary/20 group-hover:text-primary/40 transition-colors duration-500 mb-4">
                 {step.number}
               </div>
 
-              <div className="flex items-start gap-6">
+              <div className="flex items-start gap-4 md:gap-6">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 border-2 border-primary flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <step.icon className="w-8 h-8 text-primary group-hover:text-black transition-colors duration-300" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-primary flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <step.icon className="w-6 h-6 md:w-8 md:h-8 text-primary group-hover:text-black transition-colors duration-300" />
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-montserrat font-bold mb-4 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-montserrat font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
                     {step.description}
                   </p>
                 </div>
               </div>
 
-              {/* Animated triangle accent */}
+              {/* Animated triangle accent - hidden on mobile */}
               <motion.div
-                className="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="hidden md:block absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 animate={{
                   scale: [1, 1.1, 1],
                 }}
