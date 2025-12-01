@@ -1,17 +1,7 @@
 import { motion } from "framer-motion";
-import { Shield, Lock, FileCheck, CreditCard, HeartPulse } from "lucide-react";
+import { FileCheck, CreditCard } from "lucide-react";
 
 const badges = [
-  {
-    icon: Shield,
-    title: "SOC 2 Compliant",
-    description: "Enterprise-grade security standards",
-  },
-  {
-    icon: Lock,
-    title: "GDPR Compliant",
-    description: "EU data protection regulations",
-  },
   {
     icon: FileCheck,
     title: "SSL/TLS Encryption",
@@ -21,11 +11,6 @@ const badges = [
     icon: CreditCard,
     title: "PCI DSS",
     description: "Payment card industry standards",
-  },
-  {
-    icon: HeartPulse,
-    title: "HIPAA Compliant",
-    description: "Healthcare data protection",
   },
 ];
 
@@ -78,7 +63,7 @@ export const SecurityCompliance = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
         >
           {badges.map((badge, index) => {
             const Icon = badge.icon;
