@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShoppingCart, Laptop, DollarSign, HeartPulse, Briefcase } from "lucide-react";
+import { ShoppingCart, Laptop, DollarSign, Briefcase } from "lucide-react";
 
 const industries = [
   {
@@ -16,11 +16,6 @@ const industries = [
     icon: DollarSign,
     title: "Financial Services",
     description: "Fintech platforms and trading solutions",
-  },
-  {
-    icon: HeartPulse,
-    title: "Healthcare & Wellness",
-    description: "HIPAA-aware digital health solutions",
   },
   {
     icon: Briefcase,
