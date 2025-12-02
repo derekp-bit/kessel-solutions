@@ -11,13 +11,13 @@ export const Header = () => {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
     >
-      <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
+      <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between">
         <Link 
           to="/" 
           className="cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <img src={logo} alt="Kessel Solutions" className="h-10 md:h-12 hover:opacity-70 transition-opacity invert" />
+          <img src={logo} alt="Kessel Solutions" className="h-14 md:h-16 lg:h-20 hover:opacity-70 transition-opacity invert" />
         </Link>
         
         <nav className="hidden lg:flex items-center gap-10">
