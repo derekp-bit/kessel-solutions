@@ -41,13 +41,9 @@ const item = {
 
 export const IndustrySpecialization = () => {
   return (
-    <section id="industries" className="py-20 md:py-32 px-4 md:px-6 lg:px-12 relative overflow-hidden">
-      {/* Subtle triangle overlay */}
-      <div className="absolute top-20 right-0 w-96 h-96 opacity-[0.02]">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="0.5" />
-        </svg>
-      </div>
+    <section id="industries" className="py-20 md:py-28 px-4 md:px-6 lg:px-12 relative overflow-hidden">
+      {/* Subtle decorative element */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
@@ -55,13 +51,16 @@ export const IndustrySpecialization = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-20"
+          className="mb-14 md:mb-18"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-black mb-6 max-w-4xl">
-            INDUSTRY <span className="text-primary">EXPERTISE</span>
+          <span className="text-xs font-montserrat font-medium tracking-[0.2em] text-primary mb-4 block">
+            INDUSTRIES WE SERVE
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5 max-w-4xl">
+            Industry <span className="italic">Expertise</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground font-inter font-light max-w-3xl">
-            Deep specialization across high-stakes verticals where precision and performance matter most.
+          <p className="text-base md:text-lg text-muted-foreground font-inter font-light max-w-xl">
+            Deep specialization across verticals where precision and performance matter most.
           </p>
         </motion.div>
 
@@ -70,7 +69,7 @@ export const IndustrySpecialization = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
         >
           {industries.map((industry, index) => {
             const Icon = industry.icon;
@@ -78,21 +77,14 @@ export const IndustrySpecialization = () => {
               <motion.div
                 key={index}
                 variants={item}
-                className="group relative bg-background border border-border p-8 transition-all duration-500 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,229,255,0.15)]"
+                className="group relative bg-card/30 border border-border p-6 md:p-8 rounded-2xl transition-all duration-500 hover:border-primary/30 hover:bg-card/50"
               >
-                {/* Triangle accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-10 transition-opacity duration-500">
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <polygon points="100,0 100,100 0,0" fill="currentColor" className="text-primary" />
-                  </svg>
-                </div>
-
                 <div className="relative z-10">
-                  <Icon className="w-10 h-10 md:w-12 md:h-12 text-primary mb-6 transition-transform duration-500 group-hover:scale-110" />
-                  <h3 className="text-xl md:text-2xl font-montserrat font-bold mb-3">
+                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-primary mb-5 transition-transform duration-500 group-hover:scale-110" />
+                  <h3 className="text-lg md:text-xl font-display font-semibold mb-2">
                     {industry.title}
                   </h3>
-                  <p className="text-muted-foreground font-inter font-light leading-relaxed">
+                  <p className="text-sm text-muted-foreground font-inter font-light leading-relaxed">
                     {industry.description}
                   </p>
                 </div>

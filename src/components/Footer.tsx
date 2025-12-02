@@ -31,21 +31,20 @@ export const Footer = () => {
           transition={{ duration: 0.8 }}
           className="mb-12 md:mb-16 text-center"
         >
-          <h2 className="text-3xl md:text-5xl lg:text-7xl font-montserrat font-black mb-6 md:mb-8 max-w-4xl mx-auto">
-            READY TO <span className="text-primary">ACCELERATE</span> YOUR
-            DIGITAL PRESENCE?
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 md:mb-8 max-w-3xl mx-auto">
+            Ready to <span className="italic text-primary">Transform</span> Your Digital Presence?
           </h2>
           <Button
             size="lg"
             asChild
-            className="bg-primary hover:bg-primary/90 text-black font-montserrat font-bold text-sm md:text-base px-6 md:px-10 py-4 md:py-6 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(0,229,255,0.5)]"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-semibold text-sm md:text-base px-8 py-6 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
           >
             <a
               href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
               target="_blank"
               rel="noopener noreferrer"
             >
-              SCHEDULE A CALL
+              Schedule a Call
             </a>
           </Button>
         </motion.div>

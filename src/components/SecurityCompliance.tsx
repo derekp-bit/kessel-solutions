@@ -31,16 +31,9 @@ const item = {
 
 export const SecurityCompliance = () => {
   return (
-    <section className="py-20 md:py-32 px-4 md:px-6 lg:px-12 relative overflow-hidden bg-background/50">
+    <section className="py-20 md:py-28 px-4 md:px-6 lg:px-12 relative overflow-hidden">
       {/* Diagonal line accent */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      
-      {/* Triangle overlay */}
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 opacity-[0.02]">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="0.5" />
-        </svg>
-      </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
@@ -48,13 +41,16 @@ export const SecurityCompliance = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-black mb-6">
-            ENTERPRISE <span className="text-primary">SECURITY</span>
+          <span className="text-xs font-montserrat font-medium tracking-[0.2em] text-primary mb-4 block">
+            TRUST & SECURITY
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-5">
+            Enterprise-Grade <span className="italic">Security</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground font-inter font-light max-w-3xl mx-auto">
-            Built with compliance and security at the foundation, meeting the standards your organization demands.
+          <p className="text-base md:text-lg text-muted-foreground font-inter font-light max-w-xl mx-auto">
+            Built with compliance and security at the foundation.
           </p>
         </motion.div>
 
@@ -63,7 +59,7 @@ export const SecurityCompliance = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+          className="flex flex-wrap justify-center gap-8 md:gap-12"
         >
           {badges.map((badge, index) => {
             const Icon = badge.icon;
@@ -73,15 +69,13 @@ export const SecurityCompliance = () => {
                 variants={item}
                 className="group text-center"
               >
-                <div className="relative inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 mb-4 border-2 border-border rounded-full transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(0,229,255,0.2)]">
-                  {/* Inner glow effect */}
-                  <div className="absolute inset-0 rounded-full bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-primary transition-transform duration-500 group-hover:scale-110 relative z-10" />
+                <div className="relative inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-4 border border-border rounded-2xl bg-card/30 transition-all duration-500 group-hover:border-primary/30 group-hover:bg-primary/5">
+                  <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary transition-transform duration-500 group-hover:scale-110 relative z-10" />
                 </div>
-                <h3 className="text-base md:text-lg font-montserrat font-bold mb-2">
+                <h3 className="text-sm md:text-base font-display font-semibold mb-1">
                   {badge.title}
                 </h3>
-                <p className="text-sm text-muted-foreground font-inter font-light">
+                <p className="text-xs text-muted-foreground font-inter font-light">
                   {badge.description}
                 </p>
               </motion.div>

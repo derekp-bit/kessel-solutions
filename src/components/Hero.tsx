@@ -9,23 +9,32 @@ export const Hero = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
-    <section className="relative min-h-screen md:min-h-[100vh] flex items-center justify-center overflow-hidden px-4 md:px-6 lg:px-12 py-24 md:py-32">
+    <section className="relative min-h-screen md:min-h-[100vh] flex items-center justify-center overflow-hidden px-4 md:px-6 lg:px-12 py-24 md:py-32 noise-overlay">
       {/* Gradient background overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
       
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary) / 0.2) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.2) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
+      {/* Radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
 
-      {/* Minimal geometric accents */}
+      {/* Elegant geometric accents */}
       <motion.div
-        className="absolute top-20 right-[10%] w-0 h-0 border-l-[60px] border-l-transparent border-r-[60px] border-r-transparent border-b-[104px] border-b-primary/10"
+        className="absolute top-32 right-[15%] w-32 h-32 border border-primary/20 rounded-full"
         animate={{
-          y: [0, -20, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-40 left-[10%] w-24 h-24 border border-primary/15 rotate-45"
+        animate={{
+          rotate: [45, 90, 45],
+          opacity: [0.2, 0.4, 0.2],
         }}
         transition={{
           duration: 12,
@@ -35,12 +44,12 @@ export const Hero = () => {
       />
 
       <motion.div
-        className="absolute bottom-32 left-[15%] w-0 h-0 border-l-[40px] border-l-transparent border-r-[40px] border-r-transparent border-t-[70px] border-t-primary/10"
+        className="absolute top-1/2 right-[8%] w-2 h-2 bg-primary/60 rounded-full"
         animate={{
-          y: [0, -15, 0],
+          scale: [1, 1.5, 1],
         }}
         transition={{
-          duration: 10,
+          duration: 3,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -53,10 +62,10 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-card/50 mb-8 backdrop-blur-sm"
+            className="inline-flex items-center gap-3 px-5 py-2.5 border border-primary/30 bg-primary/5 rounded-full mb-8 backdrop-blur-sm"
           >
-            <div className="w-2 h-2 bg-primary rounded-full" />
-            <span className="text-sm font-montserrat font-semibold tracking-wider text-muted-foreground">
+            <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+            <span className="text-xs font-montserrat font-medium tracking-[0.2em] text-primary/80">
               FULL-SERVICE DIGITAL AGENCY
             </span>
           </motion.div>
@@ -66,11 +75,12 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-montserrat font-black leading-[1.05] mb-8 max-w-5xl"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] mb-8 max-w-5xl tracking-tight"
           >
-            STRATEGY. <span className="text-primary">DESIGN.</span>
+            <span className="font-montserrat font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl block mb-2 text-muted-foreground/70">We Craft</span>
+            <span className="italic">Exceptional</span> <span className="text-primary">Digital</span>
             <br />
-            RESULTS.
+            <span className="italic">Experiences</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -78,9 +88,9 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mb-12 font-inter font-light leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl mb-12 font-inter font-light leading-relaxed"
           >
-            We build <span className="text-foreground font-semibold">high-performing digital solutions</span> that help established businesses grow sustainably.
+            Strategic design and development for businesses ready to elevate their digital presence and drive meaningful growth.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -88,12 +98,12 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-16"
+            className="flex flex-col sm:flex-row gap-4 mb-20"
           >
             <Button
               size="lg"
               asChild
-              className="group relative bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-bold text-base md:text-lg px-10 py-7 transition-all duration-300"
+              className="group relative bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-semibold text-sm md:text-base px-8 py-6 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]"
             >
               <a
                 href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
@@ -101,8 +111,8 @@ export const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <span className="flex items-center">
-                  SCHEDULE A CONSULTATION
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  Schedule a Consultation
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </a>
             </Button>
@@ -111,9 +121,9 @@ export const Hero = () => {
               size="lg"
               variant="outline"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border border-border text-foreground hover:bg-card hover:border-primary font-montserrat font-bold text-base md:text-lg px-10 py-7 transition-all duration-300"
+              className="border border-border hover:border-primary/50 text-foreground hover:bg-primary/5 font-montserrat font-semibold text-sm md:text-base px-8 py-6 rounded-full transition-all duration-300"
             >
-              VIEW OUR SERVICES
+              View Our Services
             </Button>
           </motion.div>
 
@@ -122,7 +132,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-3 gap-8 md:gap-16 max-w-3xl w-full"
+            className="flex flex-wrap justify-center gap-12 md:gap-20"
           >
             {[
               { value: "8+", label: "Years Experience" },
@@ -130,10 +140,10 @@ export const Hero = () => {
               { value: "24/7", label: "Client Support" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-black text-primary mb-2">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground font-inter font-light tracking-wide">
+                <div className="text-xs md:text-sm text-muted-foreground font-inter tracking-wide uppercase">
                   {stat.label}
                 </div>
               </div>
