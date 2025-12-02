@@ -2,129 +2,101 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import {
-  Palette,
-  Code,
-  TrendingUp,
-  BarChart3,
-  Sparkles,
-  Zap,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const services = [
   {
-    icon: Palette,
+    number: "01",
     title: "Web Design",
-    description:
-      "User-centered interfaces designed to improve engagement and support business goals.",
+    description: "User-centered interfaces designed to improve engagement and support business goals.",
     link: "/services/web-design",
   },
   {
-    icon: Code,
+    number: "02",
     title: "Development",
-    description:
-      "Reliable, scalable applications built with modern technology and best practices.",
+    description: "Reliable, scalable applications built with modern technology and best practices.",
     link: "/services/development",
   },
   {
-    icon: TrendingUp,
+    number: "03",
     title: "Performance Marketing",
-    description:
-      "Strategic campaigns focused on measurable results and sustainable growth.",
+    description: "Strategic campaigns focused on measurable results and sustainable growth.",
     link: "/services/performance-marketing",
   },
   {
-    icon: BarChart3,
+    number: "04",
     title: "Analytics",
-    description:
-      "Comprehensive tracking and reporting to inform data-driven decisions.",
+    description: "Comprehensive tracking and reporting to inform data-driven decisions.",
     link: "/services/analytics",
   },
   {
-    icon: Sparkles,
+    number: "05",
     title: "Brand Strategy",
-    description:
-      "Clear positioning and cohesive visual identity that resonates with your audience.",
+    description: "Clear positioning and cohesive visual identity that resonates with your audience.",
     link: "/services/brand-strategy",
   },
   {
-    icon: Zap,
-    title: "Automation Systems",
-    description:
-      "Streamlined workflows that reduce manual work and improve operational efficiency.",
+    number: "06",
+    title: "Automation",
+    description: "Streamlined workflows that reduce manual work and improve operational efficiency.",
     link: "/services/automation-systems",
   },
 ];
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
-};
 
 export const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-16 md:py-24 lg:py-32 px-4 md:px-6 lg:px-12 overflow-hidden">
-      {/* Diagonal divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-      <div className="container mx-auto max-w-7xl">
+    <section id="services" className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30">
+      <div className="container mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-12 md:mb-16 lg:mb-20"
+          transition={{ duration: 0.6 }}
+          className="mb-16 md:mb-20"
         >
-          <span className="text-xs font-montserrat font-medium tracking-[0.2em] text-primary mb-4 block">
-            WHAT WE DO
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6">
-            Our <span className="italic">Capabilities</span>
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl font-inter font-light">
-            Comprehensive digital services tailored to meet your business objectives.
+          <p className="text-sm font-inter font-medium text-muted-foreground mb-4 tracking-wide">
+            Services
           </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-semibold text-foreground max-w-2xl">
+            Comprehensive digital services for growing businesses.
+          </h2>
         </motion.div>
 
-        <motion.div
-          ref={ref}
-          variants={container}
-          initial="hidden"
-          animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
-        >
-          {services.map((service) => (
-            <Link key={service.title} to={service.link}>
+        <div ref={ref} className="space-y-0">
+          {services.map((service, index) => (
             <motion.div
-              variants={item}
-              className="group relative border border-border bg-card/30 hover:bg-card/60 p-6 md:p-8 rounded-2xl transition-all duration-500 hover:border-primary/30 cursor-pointer h-full"
+              key={service.number}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="absolute top-6 right-6 w-8 h-8 border border-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <service.icon className="w-8 h-8 md:w-10 md:h-10 mb-5 text-primary transition-transform duration-500 group-hover:scale-110" />
-              <h3 className="text-lg md:text-xl font-display font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-sm text-muted-foreground font-inter font-light leading-relaxed">
-                {service.description}
-              </p>
+              <Link to={service.link} className="group block">
+                <div className="py-8 border-t border-border flex items-start md:items-center justify-between gap-6 transition-colors hover:bg-background/50">
+                  <div className="flex items-start md:items-center gap-6 md:gap-12 flex-1">
+                    <span className="text-sm font-inter text-muted-foreground w-8">
+                      {service.number}
+                    </span>
+                    <div className="flex-1">
+                      <h3 className="text-xl md:text-2xl font-montserrat font-medium text-foreground mb-2 md:mb-0 group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground font-inter md:hidden">
+                        {service.description}
+                      </p>
+                    </div>
+                    <p className="hidden md:block text-sm text-muted-foreground font-inter max-w-sm">
+                      {service.description}
+                    </p>
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                </div>
+              </Link>
             </motion.div>
-            </Link>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
