@@ -17,7 +17,7 @@ export const Header = () => {
           className="cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <img src={logo} alt="Kessel Solutions" className="h-10 md:h-12 hover:opacity-70 transition-opacity" />
+          <img src={logo} alt="Kessel Solutions" className="h-10 md:h-12 hover:opacity-70 transition-opacity invert" />
         </Link>
         
         <nav className="hidden lg:flex items-center gap-10">
