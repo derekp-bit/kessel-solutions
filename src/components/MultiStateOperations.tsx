@@ -2,13 +2,9 @@ import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 
 const states = [
-  "California",
   "Texas", 
   "New York",
   "Florida",
-  "Illinois",
-  "Washington",
-  "Colorado",
   "Georgia",
 ];
 
