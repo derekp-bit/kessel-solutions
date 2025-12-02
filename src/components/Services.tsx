@@ -16,42 +16,42 @@ const services = [
     icon: Palette,
     title: "Web Design",
     description:
-      "Premium, conversion-focused interfaces that command attention and drive action.",
+      "User-centered interfaces designed to improve engagement and support business goals.",
     link: "/services/web-design",
   },
   {
     icon: Code,
     title: "Development",
     description:
-      "Lightning-fast, scalable solutions built with cutting-edge technology stacks.",
+      "Reliable, scalable applications built with modern technology and best practices.",
     link: "/services/development",
   },
   {
     icon: TrendingUp,
     title: "Performance Marketing",
     description:
-      "Data-driven campaigns engineered to maximize ROI and accelerate growth.",
+      "Strategic campaigns focused on measurable results and sustainable growth.",
     link: "/services/performance-marketing",
   },
   {
     icon: BarChart3,
     title: "Analytics",
     description:
-      "Deep insights and tracking systems that illuminate the path to optimization.",
+      "Comprehensive tracking and reporting to inform data-driven decisions.",
     link: "/services/analytics",
   },
   {
     icon: Sparkles,
     title: "Brand Strategy",
     description:
-      "Distinctive positioning and visual identity that sets you apart from the noise.",
+      "Clear positioning and cohesive visual identity that resonates with your audience.",
     link: "/services/brand-strategy",
   },
   {
     icon: Zap,
     title: "Automation Systems",
     description:
-      "Intelligent workflows that streamline operations and multiply efficiency.",
+      "Streamlined workflows that reduce manual work and improve operational efficiency.",
     link: "/services/automation-systems",
   },
 ];
@@ -92,8 +92,7 @@ export const Services = () => {
             CAPABILITIES
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl font-inter font-light">
-            Full-spectrum digital services engineered to propel your brand
-            forward.
+            Comprehensive digital services tailored to meet your business objectives.
           </p>
         </motion.div>
 
