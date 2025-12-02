@@ -46,11 +46,14 @@ export const Process = () => {
           transition={{ duration: 0.8 }}
           className="mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-montserrat font-black mb-4 md:mb-6">
-            OUR PROCESS
+          <span className="text-xs font-montserrat font-medium tracking-[0.2em] text-primary mb-4 block">
+            HOW WE WORK
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6">
+            Our <span className="italic">Process</span>
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl font-inter font-light">
-            A proven methodology engineered for exceptional results.
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl font-inter font-light">
+            A proven methodology designed for exceptional results.
           </p>
         </motion.div>
 
@@ -70,22 +73,22 @@ export const Process = () => {
               )}
 
               {/* Step number */}
-              <div className="text-6xl md:text-7xl lg:text-8xl font-montserrat font-black text-primary/20 group-hover:text-primary/40 transition-colors duration-500 mb-4">
+              <div className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-primary/15 group-hover:text-primary/30 transition-colors duration-500 mb-4">
                 {step.number}
               </div>
 
-              <div className="flex items-start gap-4 md:gap-6">
+              <div className="flex items-start gap-4 md:gap-5">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-primary flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                    <step.icon className="w-6 h-6 md:w-8 md:h-8 text-primary group-hover:text-black transition-colors duration-300" />
+                  <div className="w-12 h-12 md:w-14 md:h-14 border border-primary/30 rounded-xl flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/50 transition-all duration-300">
+                    <step.icon className="w-5 h-5 md:w-6 md:h-6 text-primary transition-colors duration-300" />
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-montserrat font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-lg md:text-xl font-display font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
+                  <p className="text-sm text-muted-foreground font-inter font-light leading-relaxed">
                     {step.description}
                   </p>
                 </div>

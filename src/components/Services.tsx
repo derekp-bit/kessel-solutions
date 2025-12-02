@@ -88,10 +88,13 @@ export const Services = () => {
           transition={{ duration: 0.8 }}
           className="mb-12 md:mb-16 lg:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-montserrat font-black mb-4 md:mb-6">
-            CAPABILITIES
+          <span className="text-xs font-montserrat font-medium tracking-[0.2em] text-primary mb-4 block">
+            WHAT WE DO
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 md:mb-6">
+            Our <span className="italic">Capabilities</span>
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl font-inter font-light">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl font-inter font-light">
             Comprehensive digital services tailored to meet your business objectives.
           </p>
         </motion.div>
@@ -105,24 +108,20 @@ export const Services = () => {
         >
           {services.map((service) => (
             <Link key={service.title} to={service.link}>
-              <motion.div
-                variants={item}
-                className="group relative border-2 border-border bg-card p-6 md:p-8 transition-all duration-500 cyan-glow-hover cursor-pointer h-full"
-              >
-                {/* Triangle corner accent */}
-                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <motion.div
+              variants={item}
+              className="group relative border border-border bg-card/30 hover:bg-card/60 p-6 md:p-8 rounded-2xl transition-all duration-500 hover:border-primary/30 cursor-pointer h-full"
+            >
+              <div className="absolute top-6 right-6 w-8 h-8 border border-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <service.icon className="w-10 h-10 md:w-12 md:h-12 mb-4 md:mb-6 text-primary transition-transform duration-500 group-hover:scale-110" />
-                <h3 className="text-lg md:text-xl lg:text-2xl font-montserrat font-bold mb-3 md:mb-4 group-hover:text-primary transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-xs sm:text-sm md:text-base text-muted-foreground font-inter font-light leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Animated underline */}
-                <div className="absolute bottom-0 left-0 w-full h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </motion.div>
+              <service.icon className="w-8 h-8 md:w-10 md:h-10 mb-5 text-primary transition-transform duration-500 group-hover:scale-110" />
+              <h3 className="text-lg md:text-xl font-display font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                {service.title}
+              </h3>
+              <p className="text-sm text-muted-foreground font-inter font-light leading-relaxed">
+                {service.description}
+              </p>
+            </motion.div>
             </Link>
           ))}
         </motion.div>
