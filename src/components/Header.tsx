@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import logo from "@/assets/kessel-logo.png";
 import { MobileMenu } from "./MobileMenu";
 import { Link } from "react-router-dom";
 
@@ -11,13 +10,15 @@ export const Header = () => {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
     >
-      <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-3 flex items-center justify-between">
+      <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
         <Link 
           to="/" 
-          className="cursor-pointer"
+          className="cursor-pointer hover:opacity-70 transition-opacity"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <img src={logo} alt="Kessel Solutions" className="h-12 md:h-14 lg:h-16 hover:opacity-70 transition-opacity invert" />
+          <span className="font-montserrat font-bold text-lg md:text-xl tracking-tight text-foreground uppercase">
+            Kessel Solutions
+          </span>
         </Link>
         
         <nav className="hidden lg:flex items-center gap-10">
