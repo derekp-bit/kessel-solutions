@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { MobileMenu } from "./MobileMenu";
 import { Link } from "react-router-dom";
 import { ScrollProgressIndicator } from "./ScrollProgressIndicator";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a 
@@ -21,7 +23,7 @@ export const Header = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+        className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50"
       >
         <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
           <Link 
@@ -40,6 +42,23 @@ export const Header = () => {
             <NavLink href="/faq">FAQ</NavLink>
             <NavLink href="/about">About</NavLink>
           </nav>
+
+          <div className="hidden lg:block">
+            <Button
+              size="sm"
+              asChild
+              className="group bg-primary hover:bg-primary/90 text-primary-foreground font-inter font-medium text-xs px-5 py-2 rounded-none"
+            >
+              <a
+                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Started
+                <ArrowRight className="ml-1.5 w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </Button>
+          </div>
 
           <MobileMenu />
         </div>
