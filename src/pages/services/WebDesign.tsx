@@ -106,7 +106,7 @@ const WebDesign = () => {
               <Button
                 size="lg"
                 onClick={() => setIsContactModalOpen(true)}
-                className="bg-primary hover:bg-primary/90 text-foreground hover:text-background font-montserrat font-bold text-base md:text-lg px-10 py-6 transition-all duration-300 hover:scale-105"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-montserrat font-bold text-base md:text-lg px-10 py-6 transition-all duration-300 hover:scale-105"
               >
                 START YOUR PROJECT
               </Button>
