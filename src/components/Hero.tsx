@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { MagneticButton } from "./MagneticButton";
 import { TiltCard } from "./TiltCard";
+import { TechGraphics } from "./TechGraphics";
 
 // Simplified word-level animation for better performance
 const wordAnimation = {
@@ -222,6 +223,9 @@ export const Hero = () => {
 
       {/* Subtle bottom border */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
+      
+      {/* Tech graphics overlay */}
+      <TechGraphics />
     </section>
   );
 };

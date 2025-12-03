@@ -138,30 +138,30 @@ export const Services = () => {
               variants={itemVariants}
             >
               <Link to={service.link} className="group block">
-                <div className="relative py-8 border-t border-border flex items-start md:items-center justify-between gap-6 transition-all duration-300 hover:pl-4">
+                <div className="relative py-8 border-t border-border/60 flex items-start md:items-center justify-between gap-6 transition-all duration-300 hover:pl-4">
                   {/* Animated left border */}
                   <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
                   
                   {/* Subtle background on hover */}
-                  <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="flex items-start md:items-center gap-6 md:gap-12 flex-1 relative">
-                    <span className="text-sm font-inter font-bold text-muted-foreground w-8 group-hover:text-primary transition-colors">
+                    <span className="text-sm font-inter font-bold text-muted-foreground/60 w-8 group-hover:text-primary transition-colors duration-300">
                       {service.number}
                     </span>
                     <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-montserrat font-semibold text-foreground mb-2 md:mb-0 group-hover:text-primary transition-colors">
+                      <h3 className="text-xl md:text-2xl font-montserrat font-semibold text-foreground mb-2 md:mb-0 group-hover:text-primary transition-colors duration-300">
                         {service.title}
                       </h3>
                       <p className="text-sm text-muted-foreground font-inter font-light md:hidden">
                         {service.description}
                       </p>
                     </div>
-                    <p className="hidden md:block text-sm text-muted-foreground font-inter font-light max-w-sm">
+                    <p className="hidden md:block text-sm text-muted-foreground font-inter font-light max-w-sm group-hover:text-muted-foreground/80 transition-colors duration-300">
                       {service.description}
                     </p>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0 relative" />
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0 relative" />
                 </div>
               </Link>
             </motion.div>

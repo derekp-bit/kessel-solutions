@@ -65,12 +65,12 @@ export const SecurityCompliance = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
-                className="group relative flex items-start gap-4 p-6 bg-background border border-border hover:border-primary/30 transition-all duration-300"
+                className="group relative flex items-start gap-4 p-6 bg-background border border-border/60 hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-card"
               >
                 {/* Glow effect */}
                 <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                <div className="relative p-3 bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300">
+                <div className="relative p-3 bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300 border border-border/30">
                   <Icon className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <div className="relative">

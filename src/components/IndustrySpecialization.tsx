@@ -115,7 +115,7 @@ export const IndustrySpecialization = () => {
             >
               <TiltCard maxTilt={5} scale={1.02} className="h-full">
                 <div className="group h-full">
-                  <div className="relative border-l-2 border-border group-hover:border-primary pl-6 transition-colors duration-300 h-full">
+                  <div className="relative border-l-2 border-border group-hover:border-primary pl-6 transition-all duration-300 h-full bg-background/50 py-4 pr-4 shadow-sm hover:shadow-card">
                     {/* Glow effect on hover */}
                     <div className="absolute -left-px top-0 bottom-0 w-[2px] bg-primary opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
                     
