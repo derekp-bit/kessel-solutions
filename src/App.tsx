@@ -7,9 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { LoadingScreen } from "@/components/LoadingScreen";
-import { CustomCursor } from "@/components/CustomCursor";
 import { PageTransition } from "@/components/PageTransition";
-import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import Index from "./pages/Index";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
@@ -27,7 +25,6 @@ const queryClient = new QueryClient();
 
 const AnimatedRoutes = () => {
   const location = useLocation();
-  useSmoothScroll();
   
   return (
     <AnimatePresence mode="wait">
@@ -61,7 +58,6 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LoadingScreen onComplete={handleLoadingComplete} />
-        {!isLoading && <CustomCursor />}
         <Toaster />
         <Sonner />
         <BrowserRouter>

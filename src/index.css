@@ -149,10 +149,4 @@ All colors MUST be HSL.
     left: 100%;
   }
 
-  /* Hide default cursor on desktop */
-  @media (pointer: fine) {
-    * {
-      cursor: none !important;
-    }
-  }
 }
