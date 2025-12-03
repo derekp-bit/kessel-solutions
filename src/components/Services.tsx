@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -43,12 +43,45 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
 export const Services = () => {
   const ref = useRef(null);
+  const containerRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const floatingY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const floatingOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
-    <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section ref={containerRef} id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
       {/* Gradient background */}
       <div 
         className="absolute inset-0 pointer-events-none"
@@ -75,8 +108,28 @@ export const Services = () => {
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 100%)' }} 
       />
       
+      {/* Floating decorative elements */}
+      <motion.div 
+        style={{ y: floatingY, opacity: floatingOpacity }}
+        className="absolute top-1/4 right-20 w-20 h-20 pointer-events-none"
+      >
+        <div className="w-full h-full border border-primary/10 rotate-45" />
+      </motion.div>
+      <motion.div 
+        style={{ y: useTransform(scrollYProgress, [0, 1], [-30, 30]), opacity: floatingOpacity }}
+        className="absolute bottom-1/3 left-10 w-12 h-12 pointer-events-none"
+      >
+        <div className="w-full h-full bg-primary/5 rounded-full blur-sm" />
+      </motion.div>
+      
       {/* Decorative line accent */}
-      <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
+      <motion.div 
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none origin-top" 
+      />
       <div className="absolute bottom-0 right-1/3 w-px h-24 bg-gradient-to-t from-primary/15 to-transparent pointer-events-none" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -87,21 +140,33 @@ export const Services = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 md:mb-20"
         >
-          <p className="text-sm font-inter font-medium text-muted-foreground mb-4 tracking-wide">
+          <motion.p 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-sm font-inter font-semibold text-primary/70 mb-4 tracking-widest uppercase"
+          >
             Services
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-semibold text-foreground max-w-2xl">
-            Comprehensive digital services for growing businesses.
+          </motion.p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat max-w-2xl">
+            <span className="font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">Comprehensive digital</span>{" "}
+            <span className="font-light text-muted-foreground">services for</span>{" "}
+            <span className="font-semibold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">growing businesses.</span>
           </h2>
         </motion.div>
 
-        <div ref={ref} className="space-y-0">
+        <motion.div 
+          ref={ref} 
+          className="space-y-0"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.number}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={itemVariants}
             >
               <Link to={service.link} className="group block">
                 <div className="relative py-8 border-t border-border flex items-start md:items-center justify-between gap-6 transition-all duration-300 hover:pl-4">
@@ -112,18 +177,18 @@ export const Services = () => {
                   <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="flex items-start md:items-center gap-6 md:gap-12 flex-1 relative">
-                    <span className="text-sm font-inter text-muted-foreground w-8 group-hover:text-primary transition-colors">
+                    <span className="text-sm font-inter font-bold text-muted-foreground w-8 group-hover:text-primary transition-colors">
                       {service.number}
                     </span>
                     <div className="flex-1">
-                      <h3 className="text-xl md:text-2xl font-montserrat font-medium text-foreground mb-2 md:mb-0 group-hover:text-primary transition-colors">
+                      <h3 className="text-xl md:text-2xl font-montserrat font-semibold text-foreground mb-2 md:mb-0 group-hover:text-primary transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground font-inter md:hidden">
+                      <p className="text-sm text-muted-foreground font-inter font-light md:hidden">
                         {service.description}
                       </p>
                     </div>
-                    <p className="hidden md:block text-sm text-muted-foreground font-inter max-w-sm">
+                    <p className="hidden md:block text-sm text-muted-foreground font-inter font-light max-w-sm">
                       {service.description}
                     </p>
                   </div>
@@ -132,7 +197,7 @@ export const Services = () => {
               </Link>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
       
       {/* Angled bottom divider */}
