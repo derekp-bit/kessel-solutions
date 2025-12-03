@@ -92,4 +92,18 @@ All colors MUST be HSL.
   .hover-lift:hover {
     transform: translateY(-2px);
   }
+
+  /* Animated gradient text */
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 6s ease infinite;
+  }
 }
