@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -69,68 +69,20 @@ const itemVariants = {
 
 export const Services = () => {
   const ref = useRef(null);
-  const containerRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const floatingY = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const floatingOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
-      {/* Gradient background */}
+    <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+      {/* Subtle gradient background */}
       <div 
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(180deg, hsl(220 10% 96% / 0.5) 0%, hsl(220 10% 96% / 0.2) 100%)' }}
-      />
-      
-      {/* Dot pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '24px 24px'
-        }}
-      />
-      
-      {/* Radial gradient accent */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 80% 20%, hsl(220 60% 25% / 0.04) 0%, transparent 50%)' }}
+        style={{ background: 'linear-gradient(180deg, hsl(220 10% 98%) 0%, hsl(220 10% 96% / 0.5) 100%)' }}
       />
       
       {/* Angled top divider */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-background" 
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 100%)' }} 
       />
-      
-      {/* Floating decorative elements */}
-      <motion.div 
-        style={{ y: floatingY, opacity: floatingOpacity }}
-        className="absolute top-1/4 right-20 w-20 h-20 pointer-events-none"
-      >
-        <div className="w-full h-full border border-primary/10 rotate-45" />
-      </motion.div>
-      <motion.div 
-        style={{ y: useTransform(scrollYProgress, [0, 1], [-30, 30]), opacity: floatingOpacity }}
-        className="absolute bottom-1/3 left-10 w-12 h-12 pointer-events-none"
-      >
-        <div className="w-full h-full bg-primary/5 rounded-full blur-sm" />
-      </motion.div>
-      
-      {/* Decorative line accent */}
-      <motion.div 
-        initial={{ scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none origin-top" 
-      />
-      <div className="absolute bottom-0 right-1/3 w-px h-24 bg-gradient-to-t from-primary/15 to-transparent pointer-events-none" />
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
