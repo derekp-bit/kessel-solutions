@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const states = ["Texas", "New York", "Florida", "Georgia"];
@@ -19,68 +19,13 @@ const stateVariants = {
 
 export const MultiStateOperations = () => {
   const containerRef = useRef<HTMLElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const mapY = useTransform(scrollYProgress, [0, 1], [30, -30]);
-  const mapOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.5]);
 
   return (
     <section ref={containerRef} className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
-      {/* Gradient background */}
+      {/* Subtle gradient background */}
       <div 
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(135deg, hsl(220 10% 96% / 0.5) 0%, hsl(220 10% 98% / 0.3) 50%, hsl(220 10% 96% / 0.4) 100%)' }}
-      />
-      
-      {/* Circle pattern - map inspired with parallax */}
-      <motion.div 
-        style={{ y: mapY, opacity: mapOpacity }}
-        className="absolute inset-0 opacity-[0.02] pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.02 }}
-      >
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(var(--foreground)) 1.5px, transparent 1.5px)`,
-            backgroundSize: '32px 32px'
-          }}
-        />
-      </motion.div>
-      
-      {/* Radial gradient accent */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 70% 50%, hsl(220 60% 25% / 0.05) 0%, transparent 50%)' }}
-      />
-      
-      {/* Floating location pins */}
-      <motion.div 
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 right-1/4 w-3 h-3 rounded-full bg-primary/20 pointer-events-none"
-      />
-      <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/3 right-1/3 w-2 h-2 rounded-full bg-primary/15 pointer-events-none"
-      />
-      
-      {/* Decorative corner triangles */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 0.025, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="absolute top-0 left-0 w-48 h-48 pointer-events-none"
-        style={{
-          clipPath: 'polygon(0% 0%, 100% 0%, 0% 100%)',
-          background: 'hsl(var(--primary))'
-        }}
+        style={{ background: 'linear-gradient(180deg, hsl(220 10% 98%) 0%, hsl(220 10% 96% / 0.5) 100%)' }}
       />
       
       <div className="container mx-auto max-w-6xl relative z-10">
