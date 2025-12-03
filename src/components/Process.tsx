@@ -47,6 +47,43 @@ export const Process = () => {
         style={{ background: 'linear-gradient(180deg, hsl(220 10% 98%) 0%, hsl(220 10% 96% / 0.3) 100%)' }}
       />
       
+      {/* Diagonal lines pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.012] pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 50px,
+            hsl(var(--foreground)) 50px,
+            hsl(var(--foreground)) 51px
+          )`
+        }}
+      />
+      
+      {/* Radial glow */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 70% 80%, hsl(220 60% 25% / 0.03) 0%, transparent 50%)' }}
+      />
+      
+      {/* Decorative numbered circles - faint */}
+      <div className="absolute top-24 right-12 lg:right-24 opacity-[0.04] pointer-events-none hidden md:block">
+        <svg width="120" height="120" viewBox="0 0 120 120" className="text-primary">
+          <circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="8 4" />
+          <circle cx="60" cy="60" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" />
+        </svg>
+      </div>
+      
+      {/* Corner accent */}
+      <div 
+        className="absolute bottom-0 left-0 w-40 h-40 pointer-events-none opacity-[0.025]"
+        style={{
+          clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%)',
+          background: 'linear-gradient(45deg, hsl(var(--primary)), transparent)'
+        }}
+      />
+      
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
