@@ -26,10 +26,35 @@ const steps = [
 export const Process = () => {
   return (
     <section id="process" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
-      {/* Subtle decorative accent */}
-      <div className="absolute top-0 right-0 w-1/3 h-full opacity-[0.015] pointer-events-none"
+      {/* Subtle gradient background */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(180deg, transparent 0%, hsl(220 10% 96% / 0.15) 50%, transparent 100%)' }}
+      />
+      
+      {/* Cross-hatch pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.012] pointer-events-none"
         style={{
-          background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, transparent 60%)'
+          backgroundImage: `
+            linear-gradient(45deg, hsl(var(--foreground)) 1px, transparent 1px),
+            linear-gradient(-45deg, hsl(var(--foreground)) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+      />
+      
+      {/* Radial accent glow */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, hsl(220 60% 25% / 0.04) 0%, transparent 40%)' }}
+      />
+      
+      {/* Large triangle watermark */}
+      <div className="absolute top-0 right-0 w-1/2 h-full opacity-[0.02] pointer-events-none"
+        style={{
+          clipPath: 'polygon(100% 0%, 30% 100%, 100% 100%)',
+          background: 'linear-gradient(135deg, hsl(220 60% 25%), transparent)'
         }}
       />
       

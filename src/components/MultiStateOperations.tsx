@@ -4,8 +4,37 @@ const states = ["Texas", "New York", "Florida", "Georgia"];
 
 export const MultiStateOperations = () => {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
+    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+      {/* Gradient background */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(135deg, hsl(220 10% 96% / 0.5) 0%, hsl(220 10% 98% / 0.3) 50%, hsl(220 10% 96% / 0.4) 100%)' }}
+      />
+      
+      {/* Circle pattern - map inspired */}
+      <div 
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, hsl(var(--foreground)) 1.5px, transparent 1.5px)`,
+          backgroundSize: '32px 32px'
+        }}
+      />
+      
+      {/* Radial gradient accent */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 70% 50%, hsl(220 60% 25% / 0.05) 0%, transparent 50%)' }}
+      />
+      
+      {/* Decorative corner triangles */}
+      <div className="absolute top-0 left-0 w-48 h-48 opacity-[0.025] pointer-events-none"
+        style={{
+          clipPath: 'polygon(0% 0%, 100% 0%, 0% 100%)',
+          background: 'hsl(var(--primary))'
+        }}
+      />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -21,11 +21,45 @@ const industries = [
 
 export const IndustrySpecialization = () => {
   return (
-    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/20 overflow-hidden">
+    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+      {/* Subtle gradient background */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(135deg, hsl(220 10% 96% / 0.4) 0%, hsl(220 10% 98% / 0.2) 50%, hsl(220 10% 96% / 0.3) 100%)' }}
+      />
+      
+      {/* Diagonal stripe pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 40px,
+            hsl(var(--foreground)) 40px,
+            hsl(var(--foreground)) 41px
+          )`
+        }}
+      />
+      
+      {/* Radial glow */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 30% 70%, hsl(220 60% 25% / 0.03) 0%, transparent 50%)' }}
+      />
+      
       {/* Decorative corner triangle */}
-      <div className="absolute bottom-0 left-0 w-32 h-32 md:w-48 md:h-48 opacity-[0.03] pointer-events-none"
+      <div className="absolute bottom-0 left-0 w-32 h-32 md:w-64 md:h-64 opacity-[0.04] pointer-events-none"
         style={{
           clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%)',
+          background: 'linear-gradient(45deg, hsl(220 60% 25%), transparent)'
+        }}
+      />
+      
+      {/* Top right triangle accent */}
+      <div className="absolute top-0 right-0 w-40 h-40 md:w-56 md:h-56 opacity-[0.025] pointer-events-none"
+        style={{
+          clipPath: 'polygon(100% 0%, 0% 0%, 100% 100%)',
           background: 'hsl(var(--primary))'
         }}
       />
