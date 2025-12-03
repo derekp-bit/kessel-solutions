@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { TiltCard } from "./TiltCard";
 
 const industries = [
   {
@@ -111,19 +112,22 @@ export const IndustrySpecialization = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
-              className="group"
             >
-              <div className="relative border-l-2 border-border group-hover:border-primary pl-6 transition-colors duration-300">
-                {/* Glow effect on hover */}
-                <div className="absolute -left-px top-0 bottom-0 w-[2px] bg-primary opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
-                
-                <h3 className="text-xl font-montserrat font-semibold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-2 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
-                  {industry.title}
-                </h3>
-                <p className="text-muted-foreground font-inter font-light text-sm leading-relaxed">
-                  {industry.description}
-                </p>
-              </div>
+              <TiltCard maxTilt={5} scale={1.02} className="h-full">
+                <div className="group h-full">
+                  <div className="relative border-l-2 border-border group-hover:border-primary pl-6 transition-colors duration-300 h-full">
+                    {/* Glow effect on hover */}
+                    <div className="absolute -left-px top-0 bottom-0 w-[2px] bg-primary opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+                    
+                    <h3 className="text-xl font-montserrat font-semibold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-2 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300">
+                      {industry.title}
+                    </h3>
+                    <p className="text-muted-foreground font-inter font-light text-sm leading-relaxed">
+                      {industry.description}
+                    </p>
+                  </div>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

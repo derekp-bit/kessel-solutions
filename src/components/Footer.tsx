@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MagneticButton } from "./MagneticButton";
 import logo from "@/assets/kessel-logo.png";
 
 export const Footer = () => {
@@ -25,20 +26,22 @@ export const Footer = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat font-semibold text-foreground mb-8 max-w-2xl">
               Ready to elevate your digital presence?
             </h2>
-            <Button
-              size="lg"
-              asChild
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-inter font-medium text-sm px-8 py-6 rounded-none"
-            >
-              <a
-                href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
-                target="_blank"
-                rel="noopener noreferrer"
+            <MagneticButton strength={0.2}>
+              <Button
+                size="lg"
+                asChild
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-inter font-medium text-sm px-8 py-6 rounded-none"
               >
-                Schedule a Consultation
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </Button>
+                <a
+                  href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Schedule a Consultation
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
+              </Button>
+            </MagneticButton>
           </motion.div>
 
           <motion.div
