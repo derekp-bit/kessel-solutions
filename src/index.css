@@ -148,4 +148,11 @@ All colors MUST be HSL.
   .hover-shine:hover::before {
     left: 100%;
   }
+
+  /* Hide default cursor on desktop */
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
+  }
 }

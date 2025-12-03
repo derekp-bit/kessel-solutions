@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "./AnimatedCounter";
+import { MagneticButton } from "./MagneticButton";
+import { TiltCard } from "./TiltCard";
 
 // Simplified word-level animation for better performance
 const wordAnimation = {
@@ -158,33 +160,37 @@ export const Hero = () => {
               transition={{ duration: 0.6, delay: 1 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button
-                size="lg"
-                asChild
-                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground font-inter font-medium text-sm px-8 py-6 rounded-none overflow-hidden"
-              >
-                <a
-                  href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <MagneticButton strength={0.2}>
+                <Button
+                  size="lg"
+                  asChild
+                  className="group relative bg-primary hover:bg-primary/90 text-primary-foreground font-inter font-medium text-sm px-8 py-6 rounded-none overflow-hidden"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
-                  <span className="relative">Schedule a Consultation</span>
-                </a>
-              </Button>
+                  <a
+                    href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+                    <span className="relative">Schedule a Consultation</span>
+                  </a>
+                </Button>
+              </MagneticButton>
               
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-foreground/20 hover:border-foreground/40 hover:bg-transparent text-foreground font-inter font-medium text-sm px-8 py-6 rounded-none"
-              >
-                View Our Work
-              </Button>
+              <MagneticButton strength={0.15}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="border-foreground/20 hover:border-foreground/40 hover:bg-transparent text-foreground font-inter font-medium text-sm px-8 py-6 rounded-none"
+                >
+                  View Our Work
+                </Button>
+              </MagneticButton>
             </motion.div>
           </div>
 
-          {/* Right stats with staggered counters */}
+          {/* Right stats with TiltCard */}
           <div className="grid grid-cols-2 gap-8 lg:gap-12">
             {[
               { value: 8, suffix: "+", label: "Years of Experience" },
@@ -197,14 +203,17 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.15 }}
-                className="group border-l-2 border-border pl-6 hover:border-primary hover:translate-x-1 transition-all duration-300"
               >
-                <div className="text-4xl md:text-5xl font-montserrat font-bold bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent mb-2">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </div>
-                <div className="text-sm text-muted-foreground font-inter font-medium tracking-wide">
-                  {stat.label}
-                </div>
+                <TiltCard maxTilt={8} scale={1.03} className="h-full">
+                  <div className="group border-l-2 border-border pl-6 hover:border-primary transition-colors duration-300 h-full">
+                    <div className="text-4xl md:text-5xl font-montserrat font-bold bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent mb-2">
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    </div>
+                    <div className="text-sm text-muted-foreground font-inter font-medium tracking-wide">
+                      {stat.label}
+                    </div>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>

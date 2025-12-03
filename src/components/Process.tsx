@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { TiltCard } from "./TiltCard";
 
 const steps = [
   {
@@ -79,20 +80,21 @@ export const Process = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="group relative"
-              whileHover={{ y: -4, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
             >
-              {/* Step number */}
-              <span className="text-sm font-inter font-bold text-primary/60 mb-4 block relative">
-                Step {step.number}
-              </span>
-              <h3 className="text-xl md:text-2xl font-montserrat font-semibold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-3 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300 relative">
-                {step.title}
-              </h3>
-              <p className="text-muted-foreground font-inter font-light leading-relaxed relative">
-                {step.description}
-              </p>
+              <TiltCard maxTilt={5} scale={1.02} className="h-full">
+                <div className="group relative h-full">
+                  {/* Step number */}
+                  <span className="text-sm font-inter font-bold text-primary/60 mb-4 block relative">
+                    Step {step.number}
+                  </span>
+                  <h3 className="text-xl md:text-2xl font-montserrat font-semibold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-3 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300 relative">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground font-inter font-light leading-relaxed relative">
+                    {step.description}
+                  </p>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
