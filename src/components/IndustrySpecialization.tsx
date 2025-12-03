@@ -55,9 +55,13 @@ export const IndustrySpecialization = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group"
+              whileHover={{ x: 8 }}
             >
-              <div className="border-l-2 border-border group-hover:border-primary pl-6 transition-colors">
-                <h3 className="text-xl font-montserrat font-medium text-foreground mb-2">
+              <div className="relative border-l-2 border-border group-hover:border-primary pl-6 transition-colors duration-300">
+                {/* Glow effect on hover */}
+                <div className="absolute -left-px top-0 bottom-0 w-[2px] bg-primary opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300" />
+                
+                <h3 className="text-xl font-montserrat font-medium text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {industry.title}
                 </h3>
                 <p className="text-muted-foreground font-inter text-sm leading-relaxed">

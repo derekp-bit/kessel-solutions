@@ -49,6 +49,9 @@ All colors MUST be HSL.
     --accent-light: 220 40% 50%;
     --accent-dark: 220 70% 18%;
     
+    /* Gradient for headlines */
+    --gradient-text: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground)) 60%, hsl(var(--primary)) 100%);
+    
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);

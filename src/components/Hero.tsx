@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 export const Hero = () => {
   return (
@@ -36,10 +37,22 @@ export const Hero = () => {
           }}
         />
         
-        {/* Floating dots */}
-        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-primary/20" />
-        <div className="absolute top-2/3 right-1/3 w-1 h-1 rounded-full bg-primary/15" />
-        <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/10" />
+        {/* Floating dots with animation */}
+        <motion.div 
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-primary/20" 
+        />
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute top-2/3 right-1/3 w-1 h-1 rounded-full bg-primary/15" 
+        />
+        <motion.div 
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/10" 
+        />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -54,8 +67,10 @@ export const Hero = () => {
               Digital Strategy & Design Agency
             </p>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-semibold leading-[1.1] mb-8 text-foreground">
-              We build digital experiences that drive business growth.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-semibold leading-[1.1] mb-8">
+              <span className="bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+                We build digital experiences that drive business growth.
+              </span>
             </h1>
             
             <p className="text-lg text-muted-foreground font-inter font-light leading-relaxed mb-10 max-w-lg">
@@ -66,15 +81,16 @@ export const Hero = () => {
               <Button
                 size="lg"
                 asChild
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-inter font-medium text-sm px-8 py-6 rounded-none"
+                className="group relative bg-primary hover:bg-primary/90 text-primary-foreground font-inter font-medium text-sm px-8 py-6 rounded-none overflow-hidden"
               >
                 <a
                   href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Schedule a Consultation
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+                  <span className="relative">Schedule a Consultation</span>
+                  <ArrowRight className="ml-2 w-4 h-4 relative group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
               
@@ -89,7 +105,7 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right stats */}
+          {/* Right stats with animated counters */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -97,19 +113,24 @@ export const Hero = () => {
             className="grid grid-cols-2 gap-8 lg:gap-12"
           >
             {[
-              { value: "8+", label: "Years of Experience" },
-              { value: "50+", label: "Projects Delivered" },
-              { value: "4", label: "States Served" },
-              { value: "100%", label: "Client Satisfaction" },
+              { value: 8, suffix: "+", label: "Years of Experience" },
+              { value: 50, suffix: "+", label: "Projects Delivered" },
+              { value: 4, suffix: "", label: "States Served" },
+              { value: 100, suffix: "%", label: "Client Satisfaction" },
             ].map((stat, index) => (
-              <div key={index} className="border-l-2 border-border pl-6">
+              <motion.div 
+                key={index} 
+                className="border-l-2 border-border pl-6 hover:border-primary transition-colors duration-300"
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
+              >
                 <div className="text-4xl md:text-5xl font-montserrat font-semibold text-foreground mb-2">
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-sm text-muted-foreground font-inter">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>

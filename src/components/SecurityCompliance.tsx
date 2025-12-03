@@ -17,6 +17,11 @@ const badges = [
 export const SecurityCompliance = () => {
   return (
     <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30 overflow-hidden">
+      {/* Angled top divider */}
+      <div className="absolute top-0 left-0 right-0 h-12 bg-background" 
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 0%)' }} 
+      />
+      
       {/* Decorative shield pattern */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-64 h-64 opacity-[0.02] pointer-events-none">
         <svg viewBox="0 0 100 100" className="w-full h-full fill-current text-primary">
@@ -50,13 +55,17 @@ export const SecurityCompliance = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group flex items-start gap-4 p-6 bg-background border border-border hover:border-primary/30 transition-all duration-300"
+                whileHover={{ y: -4, x: 4 }}
+                className="group relative flex items-start gap-4 p-6 bg-background border border-border hover:border-primary/30 transition-all duration-300"
               >
-                <div className="p-2 bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div className="relative p-2 bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300">
                   <Icon className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
                 </div>
-                <div>
-                  <h3 className="text-lg font-montserrat font-medium text-foreground mb-1">
+                <div className="relative">
+                  <h3 className="text-lg font-montserrat font-medium text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
                     {badge.title}
                   </h3>
                   <p className="text-sm text-muted-foreground font-inter">

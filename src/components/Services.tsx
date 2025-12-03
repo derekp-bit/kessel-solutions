@@ -49,6 +49,11 @@ export const Services = () => {
 
   return (
     <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30 overflow-hidden">
+      {/* Angled top divider */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-background" 
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 100%)' }} 
+      />
+      
       {/* Decorative line accent */}
       <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 right-1/3 w-px h-24 bg-gradient-to-t from-primary/15 to-transparent pointer-events-none" />
@@ -78,8 +83,14 @@ export const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link to={service.link} className="group block">
-                <div className="py-8 border-t border-border flex items-start md:items-center justify-between gap-6 transition-all duration-300 hover:bg-background/50 hover:pl-4">
-                  <div className="flex items-start md:items-center gap-6 md:gap-12 flex-1">
+                <div className="relative py-8 border-t border-border flex items-start md:items-center justify-between gap-6 transition-all duration-300 hover:pl-4">
+                  {/* Animated left border */}
+                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
+                  
+                  {/* Subtle background on hover */}
+                  <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="flex items-start md:items-center gap-6 md:gap-12 flex-1 relative">
                     <span className="text-sm font-inter text-muted-foreground w-8 group-hover:text-primary transition-colors">
                       {service.number}
                     </span>
@@ -95,13 +106,18 @@ export const Services = () => {
                       {service.description}
                     </p>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" />
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0 relative" />
                 </div>
               </Link>
             </motion.div>
           ))}
         </div>
       </div>
+      
+      {/* Angled bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" 
+        style={{ clipPath: 'polygon(0 100%, 100% 0%, 100% 100%, 0 100%)' }} 
+      />
     </section>
   );
 };
