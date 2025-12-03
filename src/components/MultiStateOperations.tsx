@@ -22,9 +22,9 @@ export const MultiStateOperations = () => {
 
   return (
     <section ref={containerRef} className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20">
-      {/* Very subtle grid pattern */}
+      {/* Subtle grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),

@@ -7,15 +7,26 @@ import { Process } from "@/components/Process";
 import { SecurityCompliance } from "@/components/SecurityCompliance";
 import { Footer } from "@/components/Footer";
 
+const SectionDivider = () => (
+  <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+    <div className="border-t border-border/40" />
+  </div>
+);
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
+      <SectionDivider />
       <Services />
+      <SectionDivider />
       <IndustrySpecialization />
+      <SectionDivider />
       <MultiStateOperations />
+      <SectionDivider />
       <Process />
+      <SectionDivider />
       <SecurityCompliance />
       <Footer />
     </div>
