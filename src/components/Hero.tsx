@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { useRef } from "react";
@@ -218,7 +217,6 @@ export const Hero = () => {
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
                   <span className="relative">Schedule a Consultation</span>
-                  <ArrowRight className="ml-2 w-4 h-4 relative group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
               
