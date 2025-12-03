@@ -55,7 +55,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-sm font-inter font-semibold text-primary/70 mb-6 tracking-widest uppercase"
+              className="text-xs font-inter font-semibold text-primary/60 mb-8 tracking-[0.2em] uppercase"
             >
               Digital Strategy & Design Agency
             </motion.p>
@@ -64,18 +64,16 @@ export const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-montserrat leading-[1.1] mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-montserrat leading-[1.05] mb-10"
             >
-              <span className="font-bold bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+              <span className="font-bold text-foreground block">
                 <AnimatedText text="We build digital" />
               </span>
-              <br />
-              <span className="font-light text-foreground/80">
+              <span className="font-light text-foreground/70 block">
                 <AnimatedText text="experiences that" />
               </span>
-              <br />
-              <span className="font-bold bg-gradient-to-br from-primary via-primary/80 to-foreground bg-clip-text text-transparent">
-                <AnimatedText text="drive business growth." />
+              <span className="font-bold text-primary block">
+                <AnimatedText text="drive growth." />
               </span>
             </motion.h1>
             
@@ -83,7 +81,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-lg text-muted-foreground font-inter font-light leading-relaxed mb-10 max-w-lg"
+              className="text-base md:text-lg text-muted-foreground font-inter font-light leading-relaxed mb-12 max-w-md"
             >
               Strategic design and development for established businesses ready to elevate their digital presence.
             </motion.p>
