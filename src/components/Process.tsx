@@ -25,8 +25,15 @@ const steps = [
 
 export const Process = () => {
   return (
-    <section id="process" className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="container mx-auto max-w-6xl">
+    <section id="process" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+      {/* Subtle decorative accent */}
+      <div className="absolute top-0 right-0 w-1/3 h-full opacity-[0.015] pointer-events-none"
+        style={{
+          background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, transparent 60%)'
+        }}
+      />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -21,8 +21,16 @@ const industries = [
 
 export const IndustrySpecialization = () => {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="container mx-auto max-w-6xl">
+    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/20 overflow-hidden">
+      {/* Decorative corner triangle */}
+      <div className="absolute bottom-0 left-0 w-32 h-32 md:w-48 md:h-48 opacity-[0.03] pointer-events-none"
+        style={{
+          clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%)',
+          background: 'hsl(var(--primary))'
+        }}
+      />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
