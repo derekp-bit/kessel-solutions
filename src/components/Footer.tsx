@@ -5,8 +5,15 @@ import logo from "@/assets/kessel-logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-border">
-      <div className="container mx-auto max-w-6xl">
+    <footer className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-border overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 80% 20%, hsl(var(--primary)), transparent 50%)'
+        }}
+      />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* CTA Section with Logo */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-20 md:mb-24">
           <motion.div

@@ -48,8 +48,12 @@ export const Services = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
+    <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30 overflow-hidden">
+      {/* Decorative line accent */}
+      <div className="absolute top-0 left-1/4 w-px h-32 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 right-1/3 w-px h-24 bg-gradient-to-t from-primary/15 to-transparent pointer-events-none" />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,9 +78,9 @@ export const Services = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link to={service.link} className="group block">
-                <div className="py-8 border-t border-border flex items-start md:items-center justify-between gap-6 transition-colors hover:bg-background/50">
+                <div className="py-8 border-t border-border flex items-start md:items-center justify-between gap-6 transition-all duration-300 hover:bg-background/50 hover:pl-4">
                   <div className="flex items-start md:items-center gap-6 md:gap-12 flex-1">
-                    <span className="text-sm font-inter text-muted-foreground w-8">
+                    <span className="text-sm font-inter text-muted-foreground w-8 group-hover:text-primary transition-colors">
                       {service.number}
                     </span>
                     <div className="flex-1">
@@ -91,7 +95,7 @@ export const Services = () => {
                       {service.description}
                     </p>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 flex-shrink-0" />
                 </div>
               </Link>
             </motion.div>

@@ -16,8 +16,15 @@ const badges = [
 
 export const SecurityCompliance = () => {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
+    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30 overflow-hidden">
+      {/* Decorative shield pattern */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-64 h-64 opacity-[0.02] pointer-events-none">
+        <svg viewBox="0 0 100 100" className="w-full h-full fill-current text-primary">
+          <path d="M50 5 L90 25 L90 50 C90 75 50 95 50 95 C50 95 10 75 10 50 L10 25 Z" />
+        </svg>
+      </div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,9 +50,11 @@ export const SecurityCompliance = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-start gap-4 p-6 bg-background border border-border"
+                className="group flex items-start gap-4 p-6 bg-background border border-border hover:border-primary/30 transition-all duration-300"
               >
-                <Icon className="w-6 h-6 text-foreground flex-shrink-0 mt-1" />
+                <div className="p-2 bg-muted/50 group-hover:bg-primary/10 transition-colors duration-300">
+                  <Icon className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+                </div>
                 <div>
                   <h3 className="text-lg font-montserrat font-medium text-foreground mb-1">
                     {badge.title}
