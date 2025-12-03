@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const industries = [
   {
@@ -21,32 +20,21 @@ const industries = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, rotateX: -10 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    rotateX: 0,
     transition: {
-      delay: i * 0.15,
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1] as const,
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut" as const,
     },
   }),
 };
 
 export const IndustrySpecialization = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const floatingX = useTransform(scrollYProgress, [0, 1], [-20, 20]);
-  const floatingRotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
-
   return (
-    <section ref={containerRef} className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
       {/* Subtle gradient background */}
       <div 
         className="absolute inset-0 pointer-events-none"
@@ -73,24 +61,9 @@ export const IndustrySpecialization = () => {
         style={{ background: 'radial-gradient(ellipse at 30% 70%, hsl(220 60% 25% / 0.03) 0%, transparent 50%)' }}
       />
       
-      {/* Floating decorative triangle with parallax */}
-      <motion.div 
-        style={{ x: floatingX, rotate: floatingRotate }}
-        className="absolute top-1/3 right-10 w-24 h-24 pointer-events-none opacity-[0.06]"
-      >
-        <div 
-          className="w-full h-full"
-          style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)', background: 'hsl(var(--primary))' }}
-        />
-      </motion.div>
-      
-      {/* Decorative corner triangle */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 0.04, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="absolute bottom-0 left-0 w-32 h-32 md:w-64 md:h-64 pointer-events-none"
+      {/* Static decorative corner triangle */}
+      <div 
+        className="absolute bottom-0 left-0 w-32 h-32 md:w-64 md:h-64 pointer-events-none opacity-[0.04]"
         style={{
           clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%)',
           background: 'linear-gradient(45deg, hsl(220 60% 25%), transparent)'
@@ -129,7 +102,7 @@ export const IndustrySpecialization = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12" style={{ perspective: '1000px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {industries.map((industry, index) => (
             <motion.div
               key={index}
@@ -137,10 +110,8 @@ export const IndustrySpecialization = () => {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               className="group"
-              whileHover={{ x: 8, scale: 1.02 }}
-              transition={{ duration: 0.3 }}
             >
               <div className="relative border-l-2 border-border group-hover:border-primary pl-6 transition-colors duration-300">
                 {/* Glow effect on hover */}
