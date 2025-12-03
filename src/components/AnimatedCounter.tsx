@@ -7,7 +7,7 @@ interface AnimatedCounterProps {
   duration?: number;
 }
 
-export const AnimatedCounter = ({ value, suffix = "", duration = 2000 }: AnimatedCounterProps) => {
+export const AnimatedCounter = ({ value, suffix = "", duration = 1500 }: AnimatedCounterProps) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
