@@ -22,7 +22,19 @@ export const MultiStateOperations = () => {
 
   return (
     <section ref={containerRef} className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="container mx-auto max-w-6xl">
+      {/* Very subtle grid pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }}
+      />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -35,16 +47,16 @@ export const MultiStateOperations = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-sm font-inter font-semibold text-primary/70 mb-4 tracking-widest uppercase"
+              className="text-xs font-inter font-semibold text-primary/60 mb-5 tracking-[0.2em] uppercase"
             >
               Nationwide Reach
             </motion.p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat mb-6">
-              <span className="font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">Serving clients</span>{" "}
+              <span className="font-bold text-foreground">Serving clients</span>{" "}
               <span className="font-light text-muted-foreground">across the</span>{" "}
-              <span className="font-semibold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">United States.</span>
+              <span className="font-semibold text-primary">United States.</span>
             </h2>
-            <p className="text-muted-foreground font-inter font-light leading-relaxed">
+            <p className="text-muted-foreground font-inter font-light leading-relaxed max-w-md">
               Our team operates across multiple states, providing localized expertise with national capabilities. Remote collaboration available for all 50 states.
             </p>
           </motion.div>

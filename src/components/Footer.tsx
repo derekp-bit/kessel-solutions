@@ -34,15 +34,15 @@ export const Footer = () => {
             transition={{ duration: 0.6 }}
             className="max-w-xl"
           >
-            <p className="text-sm font-inter font-semibold text-primary/70 mb-4 tracking-widest uppercase">
+            <p className="text-xs font-inter font-semibold text-primary/60 mb-5 tracking-[0.2em] uppercase">
               Start a Project
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat mb-6">
-              <span className="font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">Ready to elevate</span>{" "}
+              <span className="font-bold text-foreground">Ready to elevate</span>{" "}
               <span className="font-light text-muted-foreground">your</span>{" "}
-              <span className="font-semibold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">digital presence?</span>
+              <span className="font-semibold text-primary">digital presence?</span>
             </h2>
-            <p className="text-muted-foreground font-inter font-light leading-relaxed mb-8">
+            <p className="text-muted-foreground font-inter font-light leading-relaxed mb-10">
               Let's discuss how we can help transform your business with strategic digital solutions.
             </p>
             <MagneticButton strength={0.2}>

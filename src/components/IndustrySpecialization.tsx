@@ -42,21 +42,21 @@ export const IndustrySpecialization = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-20"
+          className="mb-14 md:mb-16"
         >
           <motion.p 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-sm font-inter font-semibold text-primary/70 mb-4 tracking-widest uppercase"
+            className="text-xs font-inter font-semibold text-primary/60 mb-5 tracking-[0.2em] uppercase"
           >
             Industries
           </motion.p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-montserrat max-w-2xl">
-            <span className="font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">Deep expertise</span>{" "}
+            <span className="font-bold text-foreground">Deep expertise</span>{" "}
             <span className="font-light text-muted-foreground">across key</span>{" "}
-            <span className="font-semibold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent">verticals.</span>
+            <span className="font-semibold text-primary">verticals.</span>
           </h2>
         </motion.div>
 
