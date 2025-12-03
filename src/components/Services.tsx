@@ -48,7 +48,28 @@ export const Services = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-muted/30 overflow-hidden">
+    <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+      {/* Gradient background */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(180deg, hsl(220 10% 96% / 0.5) 0%, hsl(220 10% 96% / 0.2) 100%)' }}
+      />
+      
+      {/* Dot pattern overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: '24px 24px'
+        }}
+      />
+      
+      {/* Radial gradient accent */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 80% 20%, hsl(220 60% 25% / 0.04) 0%, transparent 50%)' }}
+      />
+      
       {/* Angled top divider */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-background" 
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 100%)' }} 

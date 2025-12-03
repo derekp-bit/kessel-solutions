@@ -6,6 +6,27 @@ import { AnimatedCounter } from "./AnimatedCounter";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 overflow-hidden">
+      {/* Radial gradient background */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 70% 30%, hsl(220 60% 25% / 0.06) 0%, transparent 50%)' }}
+      />
+      
+      {/* Secondary gradient wash */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 20% 80%, hsl(220 60% 25% / 0.03) 0%, transparent 40%)' }}
+      />
+      
+      {/* Noise texture overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-multiply"
+        style={{ 
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundSize: '150px 150px'
+        }}
+      />
+      
       {/* Decorative geometric elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Subtle grid pattern */}
@@ -15,25 +36,41 @@ export const Hero = () => {
           backgroundSize: '60px 60px'
         }} />
         
-        {/* Triangle accents */}
+        {/* Large triangle accent - top right */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.03 }}
+          animate={{ opacity: 0.05 }}
           transition={{ duration: 1.5 }}
-          className="absolute top-20 right-10 w-64 h-64 md:w-96 md:h-96"
+          className="absolute top-20 right-10 w-64 h-64 md:w-[500px] md:h-[500px]"
           style={{
             clipPath: 'polygon(100% 0%, 0% 100%, 100% 100%)',
-            background: 'linear-gradient(135deg, hsl(var(--primary)), transparent)'
+            background: 'linear-gradient(135deg, hsl(220 60% 25% / 0.08), transparent)'
           }}
         />
+        
+        {/* Smaller triangle - bottom left */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.02 }}
+          animate={{ opacity: 0.04 }}
           transition={{ duration: 1.5, delay: 0.3 }}
-          className="absolute bottom-40 left-0 w-48 h-48 md:w-72 md:h-72"
+          className="absolute bottom-20 left-0 w-48 h-48 md:w-80 md:h-80"
           style={{
             clipPath: 'polygon(0% 0%, 100% 100%, 0% 100%)',
-            background: 'linear-gradient(45deg, hsl(var(--primary)), transparent)'
+            background: 'linear-gradient(45deg, hsl(220 60% 25% / 0.06), transparent)'
+          }}
+        />
+        
+        {/* Diagonal lines pattern */}
+        <div 
+          className="absolute top-0 right-0 w-1/2 h-full opacity-[0.02]"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              transparent,
+              transparent 30px,
+              hsl(var(--foreground)) 30px,
+              hsl(var(--foreground)) 31px
+            )`
           }}
         />
         
@@ -41,17 +78,22 @@ export const Hero = () => {
         <motion.div 
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-primary/20" 
+          className="absolute top-1/3 right-1/4 w-2 h-2 rounded-full bg-primary/20" 
         />
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-2/3 right-1/3 w-1 h-1 rounded-full bg-primary/15" 
+          className="absolute top-2/3 right-1/3 w-1.5 h-1.5 rounded-full bg-primary/15" 
         />
         <motion.div 
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/10" 
+          className="absolute bottom-1/4 left-1/4 w-2 h-2 rounded-full bg-primary/10" 
+        />
+        <motion.div 
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="absolute top-1/4 left-1/3 w-1 h-1 rounded-full bg-primary/15" 
         />
       </div>
 
