@@ -1,11 +1,23 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/kessel-logo.png";
 
 export const Footer = () => {
   return (
     <footer className="py-24 md:py-32 px-6 md:px-12 lg:px-20 border-t border-border">
       <div className="container mx-auto max-w-6xl">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <img src={logo} alt="Kessel Solutions" className="h-16 md:h-20 invert opacity-80" />
+        </motion.div>
+
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
