@@ -1,17 +1,17 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "./AnimatedCounter";
-import { useRef } from "react";
 
-const letterAnimation = {
-  hidden: { opacity: 0, y: 20 },
+// Simplified word-level animation for better performance
+const wordAnimation = {
+  hidden: { opacity: 0, y: 10 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.03,
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1] as const,
+      delay: i * 0.08,
+      duration: 0.4,
+      ease: "easeOut" as const,
     },
   }),
 };
@@ -21,48 +21,30 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
   return (
     <span className={className}>
       {words.map((word, wordIndex) => (
-        <span key={wordIndex} className="inline-block mr-[0.25em]">
-          {word.split("").map((char, charIndex) => (
-            <motion.span
-              key={charIndex}
-              custom={wordIndex * 5 + charIndex}
-              variants={letterAnimation}
-              initial="hidden"
-              animate="visible"
-              className="inline-block"
-            >
-              {char}
-            </motion.span>
-          ))}
-        </span>
+        <motion.span
+          key={wordIndex}
+          custom={wordIndex}
+          variants={wordAnimation}
+          initial="hidden"
+          animate="visible"
+          className="inline-block mr-[0.25em]"
+        >
+          {word}
+        </motion.span>
       ))}
     </span>
   );
 };
 
 export const Hero = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const triangleY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
-
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 overflow-hidden">
-      {/* Parallax radial gradient background */}
-      <motion.div 
+    <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 overflow-hidden">
+      {/* Static gradient backgrounds - no parallax for performance */}
+      <div 
         className="absolute inset-0 pointer-events-none"
-        style={{ 
-          background: 'radial-gradient(ellipse at 70% 30%, hsl(220 60% 25% / 0.06) 0%, transparent 50%)',
-          y: backgroundY 
-        }}
+        style={{ background: 'radial-gradient(ellipse at 70% 30%, hsl(220 60% 25% / 0.06) 0%, transparent 50%)' }}
       />
       
-      {/* Secondary gradient wash */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse at 20% 80%, hsl(220 60% 25% / 0.03) 0%, transparent 40%)' }}
@@ -77,8 +59,8 @@ export const Hero = () => {
         }}
       />
       
-      {/* Decorative geometric elements with parallax */}
-      <motion.div className="absolute inset-0 pointer-events-none" style={{ opacity: opacityFade }}>
+      {/* Static decorative elements */}
+      <div className="absolute inset-0 pointer-events-none">
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
@@ -86,12 +68,11 @@ export const Hero = () => {
           backgroundSize: '60px 60px'
         }} />
         
-        {/* Large triangle accent - top right with parallax */}
+        {/* Large triangle accent - top right */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.05, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          style={{ y: triangleY }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.05 }}
+          transition={{ duration: 1 }}
           className="absolute top-20 right-10 w-64 h-64 md:w-[500px] md:h-[500px]"
         >
           <div 
@@ -105,9 +86,9 @@ export const Hero = () => {
         
         {/* Smaller triangle - bottom left */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 0.04, x: 0 }}
-          transition={{ duration: 1.5, delay: 0.3 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.04 }}
+          transition={{ duration: 1, delay: 0.2 }}
           className="absolute bottom-20 left-0 w-48 h-48 md:w-80 md:h-80"
           style={{
             clipPath: 'polygon(0% 0%, 100% 100%, 0% 100%)',
@@ -128,35 +109,7 @@ export const Hero = () => {
             )`
           }}
         />
-        
-        {/* Enhanced floating elements with varied animations */}
-        <motion.div 
-          animate={{ y: [0, -15, 0], x: [0, 5, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/4 w-3 h-3 rounded-full bg-primary/20 blur-[1px]" 
-        />
-        <motion.div 
-          animate={{ y: [0, 12, 0], rotate: [0, 180, 360] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-2/3 right-1/3 w-2 h-2 bg-primary/15" 
-          style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
-        />
-        <motion.div 
-          animate={{ y: [0, -10, 0], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 left-1/4 w-4 h-4 rounded-full bg-primary/10 blur-sm" 
-        />
-        <motion.div 
-          animate={{ y: [0, 15, 0], x: [0, -8, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute top-1/4 left-1/3 w-2 h-2 rounded-full bg-primary/15" 
-        />
-        <motion.div 
-          animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 right-1/5 w-6 h-6 rounded-full bg-primary/10 blur-md" 
-        />
-      </motion.div>
+      </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
