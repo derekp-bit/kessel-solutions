@@ -72,36 +72,8 @@ export const Services = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
-      {/* Subtle gradient background */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'linear-gradient(180deg, hsl(220 10% 98%) 0%, hsl(220 10% 96% / 0.5) 100%)' }}
-      />
-      
-      {/* Subtle dot grid pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-          backgroundSize: '32px 32px'
-        }}
-      />
-      
-      {/* Decorative corner accent */}
-      <div 
-        className="absolute top-20 right-0 w-64 h-64 pointer-events-none opacity-[0.02]"
-        style={{
-          background: 'radial-gradient(circle at top right, hsl(var(--primary)), transparent 70%)'
-        }}
-      />
-      
-      {/* Angled top divider */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-background" 
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 100%)' }} 
-      />
-      
-      <div className="container mx-auto max-w-6xl relative z-10">
+    <section id="services" className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20">
+      <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -168,11 +140,6 @@ export const Services = () => {
           ))}
         </motion.div>
       </div>
-      
-      {/* Angled bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" 
-        style={{ clipPath: 'polygon(0 100%, 100% 0%, 100% 100%, 0 100%)' }} 
-      />
     </section>
   );
 };

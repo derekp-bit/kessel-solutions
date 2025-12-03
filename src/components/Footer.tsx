@@ -23,33 +23,8 @@ const company = [
 
 export const Footer = () => {
   return (
-    <footer className="relative py-20 md:py-28 px-6 md:px-12 lg:px-20 border-t border-border overflow-hidden bg-muted/30">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
-            backgroundSize: '40px 40px'
-          }}
-        />
-        <div 
-          className="absolute top-0 right-0 w-96 h-96 opacity-[0.03]"
-          style={{
-            background: 'radial-gradient(circle at top right, hsl(var(--primary)), transparent 60%)'
-          }}
-        />
-        {/* Triangle accent */}
-        <div 
-          className="absolute bottom-0 left-0 w-64 h-64 opacity-[0.02]"
-          style={{
-            clipPath: 'polygon(0% 0%, 0% 100%, 100% 100%)',
-            background: 'hsl(var(--primary))'
-          }}
-        />
-      </div>
-      
-      <div className="container mx-auto max-w-6xl relative z-10">
+    <footer className="relative py-20 md:py-28 px-6 md:px-12 lg:px-20 border-t border-border bg-muted/20">
+      <div className="container mx-auto max-w-6xl">
         {/* CTA Section */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12 mb-16 md:mb-20 pb-16 md:pb-20 border-b border-border/50">
           <motion.div

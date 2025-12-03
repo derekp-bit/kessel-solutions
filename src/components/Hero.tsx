@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { MagneticButton } from "./MagneticButton";
 import { TiltCard } from "./TiltCard";
-import { TechGraphics } from "./TechGraphics";
 
 // Simplified word-level animation for better performance
 const wordAnimation = {
@@ -42,77 +41,11 @@ const AnimatedText = ({ text, className }: { text: string; className?: string })
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-20 pt-32 pb-20 overflow-hidden">
-      {/* Static gradient backgrounds - no parallax for performance */}
+      {/* Subtle gradient background */}
       <div 
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 70% 30%, hsl(220 60% 25% / 0.06) 0%, transparent 50%)' }}
+        style={{ background: 'radial-gradient(ellipse at 70% 30%, hsl(220 60% 25% / 0.04) 0%, transparent 50%)' }}
       />
-      
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 20% 80%, hsl(220 60% 25% / 0.03) 0%, transparent 40%)' }}
-      />
-      
-      {/* Noise texture overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-multiply"
-        style={{ 
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          backgroundSize: '150px 150px'
-        }}
-      />
-      
-      {/* Static decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-        
-        {/* Large triangle accent - top right */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.05 }}
-          transition={{ duration: 1 }}
-          className="absolute top-20 right-10 w-64 h-64 md:w-[500px] md:h-[500px]"
-        >
-          <div 
-            className="w-full h-full"
-            style={{
-              clipPath: 'polygon(100% 0%, 0% 100%, 100% 100%)',
-              background: 'linear-gradient(135deg, hsl(220 60% 25% / 0.08), transparent)'
-            }}
-          />
-        </motion.div>
-        
-        {/* Smaller triangle - bottom left */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.04 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="absolute bottom-20 left-0 w-48 h-48 md:w-80 md:h-80"
-          style={{
-            clipPath: 'polygon(0% 0%, 100% 100%, 0% 100%)',
-            background: 'linear-gradient(45deg, hsl(220 60% 25% / 0.06), transparent)'
-          }}
-        />
-        
-        {/* Diagonal lines pattern */}
-        <div 
-          className="absolute top-0 right-0 w-1/2 h-full opacity-[0.02]"
-          style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 30px,
-              hsl(var(--foreground)) 30px,
-              hsl(var(--foreground)) 31px
-            )`
-          }}
-        />
-      </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
@@ -223,9 +156,6 @@ export const Hero = () => {
 
       {/* Subtle bottom border */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-border" />
-      
-      {/* Tech graphics overlay */}
-      <TechGraphics />
     </section>
   );
 };
