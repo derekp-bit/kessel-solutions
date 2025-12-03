@@ -197,8 +197,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.15 }}
-                className="group border-l-2 border-border pl-6 hover:border-primary transition-colors duration-300"
-                whileHover={{ x: 4 }}
+                className="group border-l-2 border-border pl-6 hover:border-primary hover:translate-x-1 transition-all duration-300"
               >
                 <div className="text-4xl md:text-5xl font-montserrat font-bold bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent mb-2">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
