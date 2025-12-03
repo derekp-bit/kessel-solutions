@@ -79,6 +79,23 @@ export const Services = () => {
         style={{ background: 'linear-gradient(180deg, hsl(220 10% 98%) 0%, hsl(220 10% 96% / 0.5) 100%)' }}
       />
       
+      {/* Subtle dot grid pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)',
+          backgroundSize: '32px 32px'
+        }}
+      />
+      
+      {/* Decorative corner accent */}
+      <div 
+        className="absolute top-20 right-0 w-64 h-64 pointer-events-none opacity-[0.02]"
+        style={{
+          background: 'radial-gradient(circle at top right, hsl(var(--primary)), transparent 70%)'
+        }}
+      />
+      
       {/* Angled top divider */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-background" 
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 0%, 0 100%)' }} 

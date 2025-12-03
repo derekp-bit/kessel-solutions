@@ -28,6 +28,40 @@ export const MultiStateOperations = () => {
         style={{ background: 'linear-gradient(180deg, hsl(220 10% 98%) 0%, hsl(220 10% 96% / 0.5) 100%)' }}
       />
       
+      {/* Subtle cross pattern - map inspired */}
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px'
+        }}
+      />
+      
+      {/* Radial glow accent */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 80% 30%, hsl(220 60% 25% / 0.03) 0%, transparent 50%)' }}
+      />
+      
+      {/* Decorative corner triangles */}
+      <div 
+        className="absolute top-0 left-0 w-32 h-32 pointer-events-none opacity-[0.03]"
+        style={{
+          clipPath: 'polygon(0% 0%, 100% 0%, 0% 100%)',
+          background: 'hsl(var(--primary))'
+        }}
+      />
+      <div 
+        className="absolute bottom-0 right-0 w-48 h-48 pointer-events-none opacity-[0.02]"
+        style={{
+          clipPath: 'polygon(100% 0%, 100% 100%, 0% 100%)',
+          background: 'hsl(var(--primary))'
+        }}
+      />
+      
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
