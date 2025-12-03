@@ -67,6 +67,12 @@ export default {
         'montserrat': ['Montserrat', 'sans-serif'],
         'inter': ['Inter', 'sans-serif'],
       },
+      boxShadow: {
+        'sm': 'var(--shadow-sm)',
+        'card': 'var(--shadow-card)',
+        'elevated': 'var(--shadow-elevated)',
+        'glow': 'var(--shadow-glow)',
+      },
       keyframes: {
         "accordion-down": {
           from: {

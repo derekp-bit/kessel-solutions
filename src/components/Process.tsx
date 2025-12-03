@@ -110,29 +110,29 @@ export const Process = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              custom={index}
-              variants={stepVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <TiltCard maxTilt={5} scale={1.02} className="h-full">
-                <div className="group relative h-full">
-                  {/* Step number */}
-                  <span className="text-sm font-inter font-bold text-primary/60 mb-4 block relative">
-                    Step {step.number}
-                  </span>
-                  <h3 className="text-xl md:text-2xl font-montserrat font-semibold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-3 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300 relative">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground font-inter font-light leading-relaxed relative">
-                    {step.description}
-                  </p>
-                </div>
-              </TiltCard>
-            </motion.div>
+              <motion.div
+                key={step.number}
+                custom={index}
+                variants={stepVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                <TiltCard maxTilt={5} scale={1.02} className="h-full">
+                  <div className="group relative h-full p-6 bg-background border border-border/50 shadow-sm hover:shadow-card hover:border-primary/30 transition-all duration-300">
+                    {/* Step number */}
+                    <span className="text-sm font-inter font-bold text-primary/60 mb-4 block relative">
+                      Step {step.number}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-montserrat font-semibold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent mb-3 group-hover:from-primary group-hover:to-primary/70 transition-all duration-300 relative">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground font-inter font-light leading-relaxed relative">
+                      {step.description}
+                    </p>
+                  </div>
+                </TiltCard>
+              </motion.div>
           ))}
         </div>
       </div>

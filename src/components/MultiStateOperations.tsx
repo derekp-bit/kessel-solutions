@@ -98,8 +98,8 @@ export const MultiStateOperations = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -4 }}
-                className="group p-6 bg-background border border-border hover:border-primary/30 transition-all duration-300 cursor-default"
+                whileHover={{ scale: 1.03, y: -2 }}
+                className="group relative p-6 bg-background border border-border/60 hover:border-primary/40 transition-all duration-300 cursor-default shadow-sm hover:shadow-card"
               >
                 {/* Glow effect */}
                 <div className="absolute inset-0 bg-primary/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded" />
