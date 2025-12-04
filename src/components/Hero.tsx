@@ -125,7 +125,7 @@ export const Hero = () => {
           {/* Right stats with TiltCard */}
           <div className="grid grid-cols-2 gap-8 lg:gap-12">
             {[
-              { value: 8, suffix: "+", label: "Years of Experience" },
+              { value: 3, suffix: "+", label: "Years of Experience" },
               { value: 50, suffix: "+", label: "Projects Delivered" },
               { value: 4, suffix: "", label: "States Served" },
               { value: 100, suffix: "%", label: "Client Satisfaction" },
