@@ -4,6 +4,7 @@ import { Services } from "@/components/Services";
 import { IndustrySpecialization } from "@/components/IndustrySpecialization";
 import { MultiStateOperations } from "@/components/MultiStateOperations";
 import { Process } from "@/components/Process";
+import { Testimonials } from "@/components/Testimonials";
 import { SecurityCompliance } from "@/components/SecurityCompliance";
 import { Footer } from "@/components/Footer";
 
@@ -26,6 +27,8 @@ const Index = () => {
       <MultiStateOperations />
       <SectionDivider />
       <Process />
+      <SectionDivider />
+      <Testimonials />
       <SectionDivider />
       <SecurityCompliance />
       <Footer />
