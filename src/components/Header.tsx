@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ScrollProgressIndicator } from "./ScrollProgressIndicator";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import kesselLogo from "@/assets/kessel-logo.png";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a 
@@ -28,12 +29,14 @@ export const Header = () => {
         <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
           <Link 
             to="/" 
-            className="cursor-pointer hover:opacity-70 transition-opacity"
+            className="cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <span className="font-montserrat font-bold text-lg md:text-xl tracking-tight text-foreground uppercase">
-              Kessel Solutions
-            </span>
+            <img 
+              src={kesselLogo} 
+              alt="Kessel Solutions" 
+              className="h-8 md:h-10 w-auto"
+            />
           </Link>
           
           <nav className="hidden lg:flex items-center gap-10">
