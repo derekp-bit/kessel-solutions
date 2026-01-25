@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
+import kesselLogo from "@/assets/kessel-logo.png";
 
 export const CTASection = () => {
   const calendarUrl = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot";
@@ -21,11 +22,32 @@ export const CTASection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+        {/* Brand Summary with Logo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-16"
+        >
+          <img 
+            src={kesselLogo} 
+            alt="Kessel Solutions" 
+            className="h-28 md:h-36 lg:h-44 w-auto"
+          />
+          <div className="text-center md:text-left max-w-xl">
+            <p className="text-primary-foreground/90 text-lg md:text-xl leading-relaxed">
+              A full-service digital agency delivering enterprise-grade web design, performance marketing, and automation solutions for 8-9 figure businesses across the nation.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* CTA Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
