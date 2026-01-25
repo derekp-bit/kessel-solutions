@@ -5,8 +5,22 @@ export const CTASection = () => {
   const calendarUrl = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1Q62q6hWYC6wXM7nuhPdX10KbTUX0q4M4oNWZqlMS3L6PfTPUup43kqWlSYcHU-0GG3sSb29Ot";
 
   return (
-    <section className="py-24 bg-primary">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-primary relative overflow-hidden">
+      {/* Subtle diagonal gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/80" />
+      
+      {/* Triangle motif pattern */}
+      <div className="absolute inset-0 opacity-[0.08]">
+        <svg className="absolute top-0 right-0 w-96 h-96 -translate-y-1/4 translate-x-1/4" viewBox="0 0 100 100" fill="none">
+          <polygon points="50,10 90,90 10,90" stroke="currentColor" strokeWidth="1" className="text-primary-foreground" fill="none" />
+          <polygon points="50,25 80,80 20,80" stroke="currentColor" strokeWidth="0.5" className="text-primary-foreground" fill="none" />
+        </svg>
+        <svg className="absolute bottom-0 left-0 w-72 h-72 translate-y-1/4 -translate-x-1/4 rotate-180" viewBox="0 0 100 100" fill="none">
+          <polygon points="50,10 90,90 10,90" stroke="currentColor" strokeWidth="1" className="text-primary-foreground" fill="none" />
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
