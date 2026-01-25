@@ -3,8 +3,8 @@ import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { IndustrySpecialization } from "@/components/IndustrySpecialization";
 import { MultiStateOperations } from "@/components/MultiStateOperations";
-import { Process } from "@/components/Process";
 import { SecurityCompliance } from "@/components/SecurityCompliance";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 const SectionDivider = () => (
@@ -26,6 +26,7 @@ const Index = () => {
       <MultiStateOperations />
       <SectionDivider />
       <SecurityCompliance />
+      <CTASection />
       <Footer />
     </div>
   );
